@@ -141,14 +141,14 @@
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ mvn archetype:generate -B \
-    -DarchetypeGroupId=net.java.truelicense \
+    -DarchetypeGroupId=net.truelicense \
     -DarchetypeArtifactId=truelicense-maven-archetype \
-    -DarchetypeVersion=2.6.6 \
+    -DarchetypeVersion=3.0.0 \
     -DartifactId='basic' \
-    -DcompanyName='Company Inc.' \
+    -Dcompany='Company Inc.' \
     -DgroupId='com.company.product' \
-    -DlicensingSubject='Product 1' \
     -Dpassword='test1234' \
+    -Dsubject='Product 1' \
     -Dversion='1.0-SNAPSHOT'
 [...]
 </pre></div></div>
@@ -168,8 +168,8 @@
 <div xmlns="http://www.w3.org/1999/xhtml" class="property-reference no-optional">
 <div class="accordion" id="d20e13">
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e152" class="accordion-toggle"><tt>artifactId</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">ArtifactId</abbr></a></div>
-<div id="d24e152" class="accordion-body collapse in">
+<div class="accordion-heading"><a href="#d24e174" class="accordion-toggle"><tt>artifactId</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">ArtifactId</abbr></a></div>
+<div id="d24e174" class="accordion-body collapse in">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -192,8 +192,8 @@
                 </a>.
             </dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e188" class="accordion-toggle"><tt>companyName</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr></a></div>
-<div id="d24e188" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e210" class="accordion-toggle"><tt>company</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr></a></div>
+<div id="d24e210" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -204,8 +204,8 @@
 <dt>Type</dt>
 <dd><a class="externalLink" href="http://www.w3.org/TR/xmlschema-2/#token"><abbr title="A built-in datatype of XML Schema.">token</abbr></a></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e306" class="accordion-toggle"><tt>groupId</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">GroupId</abbr></a></div>
-<div id="d24e306" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e328" class="accordion-toggle"><tt>groupId</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">GroupId</abbr></a></div>
+<div id="d24e328" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -223,19 +223,38 @@
                 </a>.
             </dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e530" class="accordion-toggle"><tt>licensingSubject</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr></a></div>
-<div id="d24e530" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e555" class="accordion-toggle"><tt>password</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">Password</abbr></a></div>
+<div id="d24e555" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
 <dd>
-                        The licensing subject.
+                        The common password for accessing key stores and
+                        encrypting license keys.
+                    </dd>
+<dt>Type</dt>
+<dd><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">Password</abbr>: 
+                A string of at least eight characters which must contain letters
+                and digits.
+                You should consider this to be the bare minimum.
+                Choosing a longer password with additional punctuation
+                characters significantly improves the security level of your
+                licensing schema.
+            </dd></dl></div></div></div>
+<div class="accordion-group">
+<div class="accordion-heading"><a href="#d24e646" class="accordion-toggle"><tt>subject</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr></a></div>
+<div id="d24e646" class="accordion-body collapse">
+<div class="accordion-inner">
+<dl class="dl-horizontal">
+<dt>Description</dt>
+<dd>
+                        The license management subject.
                         The value of this property gets stored in the generated
                         license keys and is used for validation.
                         A
-                        <a href="../apidocs/net/java/truelicense/core/LicenseValidationException.html">
+                        <a href="../apidocs/net/truelicense/api/LicenseValidationException.html">
                             <tt>
-                                net.java.truelicense.core.LicenseValidationException
+                                net.truelicense.api.LicenseValidationException
                             </tt>
                         </a>
                         is thrown if the validation fails.
@@ -257,27 +276,8 @@
 <dt>Type</dt>
 <dd><a class="externalLink" href="http://www.w3.org/TR/xmlschema-2/#token"><abbr title="A built-in datatype of XML Schema.">token</abbr></a></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e578" class="accordion-toggle"><tt>password</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">Password</abbr></a></div>
-<div id="d24e578" class="accordion-body collapse">
-<div class="accordion-inner">
-<dl class="dl-horizontal">
-<dt>Description</dt>
-<dd>
-                        The common password for accessing key stores and
-                        encrypting license keys.
-                    </dd>
-<dt>Type</dt>
-<dd><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">Password</abbr>: 
-                A string of at least eight characters which must contain letters
-                and digits.
-                You should consider this to be the bare minimum.
-                Choosing a longer password with additional punctuation
-                characters significantly improves the security level of your
-                licensing schema.
-            </dd></dl></div></div></div>
-<div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e690" class="accordion-toggle"><tt>version</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">Version</abbr></a></div>
-<div id="d24e690" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e694" class="accordion-toggle"><tt>version</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">Version</abbr></a></div>
+<div id="d24e694" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -303,8 +303,8 @@
 <div xmlns="http://www.w3.org/1999/xhtml" class="property-reference no-required">
 <div class="accordion" id="d20e18">
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e173" class="accordion-toggle"><tt>artifactName</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
-<div id="d24e173" class="accordion-body collapse in">
+<div class="accordion-heading"><a href="#d24e195" class="accordion-toggle"><tt>artifactName</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
+<div id="d24e195" class="accordion-body collapse in">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -320,8 +320,8 @@
 <dt>Default</dt>
 <dd><tt>-</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e200" class="accordion-toggle"><tt>customClasspathScope</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">CustomClasspathScope</abbr> [<tt>compile</tt>]</a></div>
-<div id="d24e200" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e222" class="accordion-toggle"><tt>customClasspathScope</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">CustomClasspathScope</abbr> [<tt>compile</tt>]</a></div>
+<div id="d24e222" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -369,8 +369,8 @@
 <dt>Default</dt>
 <dd><tt>compile</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e212" class="accordion-toggle"><tt>disableLicenseWizard</tt>: <abbr title="A built-in datatype of XML Schema.">boolean</abbr> [<tt>false</tt>]</a></div>
-<div id="d24e212" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e234" class="accordion-toggle"><tt>disableWizard</tt>: <abbr title="A built-in datatype of XML Schema.">boolean</abbr> [<tt>false</tt>]</a></div>
+<div id="d24e234" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -387,8 +387,8 @@
 <dt>Default</dt>
 <dd><tt>false</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e225" class="accordion-toggle"><tt>editions</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">JavaIdentifierList</abbr> [<tt>standard</tt>]</a></div>
-<div id="d24e225" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e247" class="accordion-toggle"><tt>editions</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">JavaIdentifierList</abbr> [<tt>standard</tt>]</a></div>
+<div id="d24e247" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -413,8 +413,8 @@
 <dt>Default</dt>
 <dd><tt>standard</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e243" class="accordion-toggle"><tt>freeTrialPeriod</tt>: <abbr title="A built-in datatype of XML Schema.">nonNegativeInteger</abbr> [<tt>0</tt>]</a></div>
-<div id="d24e243" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e265" class="accordion-toggle"><tt>freeTrialPeriod</tt>: <abbr title="A built-in datatype of XML Schema.">nonNegativeInteger</abbr> [<tt>0</tt>]</a></div>
+<div id="d24e265" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -432,8 +432,8 @@
 <dt>Default</dt>
 <dd><tt>0</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e261" class="accordion-toggle"><tt>ftpKeyStoreFile</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
-<div id="d24e261" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e283" class="accordion-toggle"><tt>ftpKeyStoreFile</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
+<div id="d24e283" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -457,8 +457,8 @@
 <dt>Default</dt>
 <dd><tt>-</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e285" class="accordion-toggle"><tt>ftpSecretMarkerClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
-<div id="d24e285" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e307" class="accordion-toggle"><tt>ftpSecretMarkerClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
+<div id="d24e307" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -486,8 +486,8 @@
 <dt>Default</dt>
 <dd><tt>-</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e315" class="accordion-toggle"><tt>hideUninstallAction</tt>: <abbr title="A built-in datatype of XML Schema.">boolean</abbr> [<tt>false</tt>]</a></div>
-<div id="d24e315" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e337" class="accordion-toggle"><tt>hideUninstallAction</tt>: <abbr title="A built-in datatype of XML Schema.">boolean</abbr> [<tt>false</tt>]</a></div>
+<div id="d24e337" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -501,16 +501,16 @@
 <dt>Default</dt>
 <dd><tt>false</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e325" class="accordion-toggle"><tt>keyGenLicenseAuthorizationClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
-<div id="d24e325" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e347" class="accordion-toggle"><tt>keyGenAuthorizationClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
+<div id="d24e347" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
 <dd>
                         A fully qualified binary class name which implements the
                         interface
-                        <a href="../apidocs/net/java/truelicense/core/LicenseAuthorization.html">
-                            <tt>net.java.truelicense.core.LicenseAuthorization</tt>
+                        <a href="../apidocs/net/truelicense/api/LicenseManagementAuthorization.html">
+                            <tt>net.truelicense.api.LicenseManagementAuthorization</tt>
                         </a>
                         for use in the Key Generator module.
                         Select
@@ -522,16 +522,16 @@
 <dt>Default</dt>
 <dd><tt>-</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e343" class="accordion-toggle"><tt>keyGenLicenseValidationClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
-<div id="d24e343" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e365" class="accordion-toggle"><tt>keyGenValidationClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
+<div id="d24e365" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
 <dd>
                         A fully qualified binary class name which implements the
                         interface
-                        <a href="../apidocs/net/java/truelicense/core/LicenseValidation.html">
-                            <tt>net.java.truelicense.core.LicenseValidation</tt>
+                        <a href="../apidocs/net/truelicense/api/LicenseValidation.html">
+                            <tt>net.truelicense.api.LicenseValidation</tt>
                         </a>
                         for use in the Key Generator module.
                         Select
@@ -543,43 +543,62 @@
 <dt>Default</dt>
 <dd><tt>-</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e361" class="accordion-toggle"><tt>keyGenLicenseValidationFunction</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">ValidationFunction</abbr> [<tt>decorate</tt>]</a></div>
-<div id="d24e361" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e383" class="accordion-toggle"><tt>keyGenValidationComposition</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">LicenseFunctionComposition</abbr> [<tt>decorate</tt>]</a></div>
+<div id="d24e383" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
 <dd>
-                        Selects the function for license validation in the Key
-                        Generator module.
+                        Selects the composition strategy for license validation
+                        functions in the Key Generator module.
                         This property is ignored if the property
-                        <tt>keyGenLicenseValidationClass</tt>
+                        <tt>keyGenValidationClass</tt>
                         is set to
                         <tt>-</tt>.
-                        Otherwise, select
-                        <tt>override</tt>
-                        to apply only the the custom license validation function
-                        which is implemented by the
-                        <tt>${keyGenLicenseValidationClass}</tt>.
-                        Select
-                        <tt>decorate</tt>
-                        instead to apply both the custom license validation
-                        function and the built-in license validation function.
                     </dd>
 <dt>Type</dt>
-<dd><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">ValidationFunction</abbr>: One of <tt>decorate</tt> or <tt>override</tt>. </dd>
+<dd><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">LicenseFunctionComposition</abbr>: One of <tt>decorate</tt> or <tt>override</tt>. 
+                Select
+                <tt>override</tt>
+                to apply only the custom function.
+                Select
+                <tt>decorate</tt>
+                to apply both the custom function and the built-in function.
+            </dd>
 <dt>Default</dt>
 <dd><tt>decorate</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e385" class="accordion-toggle"><tt>keyMgrClockClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
-<div id="d24e385" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e416" class="accordion-toggle"><tt>keyMgrAuthorizationClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
+<div id="d24e416" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
 <dd>
                         A fully qualified binary class name which implements the
                         interface
-                        <a href="../apidocs/net/java/truelicense/core/util/Clock.html">
-                            <tt>net.java.truelicense.core.util.Clock</tt>
+                        <a href="../apidocs/net/truelicense/api/LicenseManagementAuthorization.html">
+                            <tt>net.truelicense.api.LicenseManagementAuthorization</tt>
+                        </a>
+                        for use in the Key Manager module.
+                        Select
+                        <tt>-</tt>
+                        to use no license authorization.
+                    </dd>
+<dt>Type</dt>
+<dd><a class="externalLink" href="http://www.w3.org/TR/xmlschema-2/#token"><abbr title="A built-in datatype of XML Schema.">token</abbr></a></dd>
+<dt>Default</dt>
+<dd><tt>-</tt></dd></dl></div></div></div>
+<div class="accordion-group">
+<div class="accordion-heading"><a href="#d24e398" class="accordion-toggle"><tt>keyMgrClockClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
+<div id="d24e398" class="accordion-body collapse">
+<div class="accordion-inner">
+<dl class="dl-horizontal">
+<dt>Description</dt>
+<dd>
+                        A fully qualified binary class name which implements the
+                        interface
+                        <a href="../apidocs/net/truelicense/api/util/Clock.html">
+                            <tt>net.truelicense.api.util.Clock</tt>
                         </a>
                         for use in the Key Manager module.
                         Select
@@ -591,37 +610,16 @@
 <dt>Default</dt>
 <dd><tt>-</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e403" class="accordion-toggle"><tt>keyMgrLicenseAuthorizationClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
-<div id="d24e403" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e434" class="accordion-toggle"><tt>keyMgrValidationClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
+<div id="d24e434" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
 <dd>
                         A fully qualified binary class name which implements the
                         interface
-                        <a href="../apidocs/net/java/truelicense/core/LicenseAuthorization.html">
-                            <tt>net.java.truelicense.core.LicenseAuthorization</tt>
-                        </a>
-                        for use in the Key Manager module.
-                        Select
-                        <tt>-</tt>
-                        to use no license authorization.
-                    </dd>
-<dt>Type</dt>
-<dd><a class="externalLink" href="http://www.w3.org/TR/xmlschema-2/#token"><abbr title="A built-in datatype of XML Schema.">token</abbr></a></dd>
-<dt>Default</dt>
-<dd><tt>-</tt></dd></dl></div></div></div>
-<div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e421" class="accordion-toggle"><tt>keyMgrLicenseValidationClass</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>-</tt>]</a></div>
-<div id="d24e421" class="accordion-body collapse">
-<div class="accordion-inner">
-<dl class="dl-horizontal">
-<dt>Description</dt>
-<dd>
-                        A fully qualified binary class name which implements the
-                        interface
-                        <a href="../apidocs/net/java/truelicense/core/LicenseValidation.html">
-                            <tt>net.java.truelicense.core.LicenseValidation</tt>
+                        <a href="../apidocs/net/truelicense/api/LicenseValidation.html">
+                            <tt>net.truelicense.api.LicenseValidation</tt>
                         </a>
                         for use in the Key Manager module.
                         Select
@@ -633,35 +631,33 @@
 <dt>Default</dt>
 <dd><tt>-</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e440" class="accordion-toggle"><tt>keyMgrLicenseValidationFunction</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">ValidationFunction</abbr> [<tt>decorate</tt>]</a></div>
-<div id="d24e440" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e453" class="accordion-toggle"><tt>keyMgrValidationComposition</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">LicenseFunctionComposition</abbr> [<tt>decorate</tt>]</a></div>
+<div id="d24e453" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
 <dd>
-                        Selects the function for license validation in the Key
-                        Manager module.
+                        Selects the composition strategy for license validation
+                        functions in the Key Manager module.
                         This property is ignored if the property
-                        <tt>keyMgrLicenseValidationClass</tt>
+                        <tt>keyMgrValidationClass</tt>
                         is set to
                         <tt>-</tt>.
-                        Otherwise, select
-                        <tt>override</tt>
-                        to apply only the the custom license validation function
-                        which is implemented by the
-                        <tt>${keyMgrLicenseValidationClass}</tt>.
-                        Select
-                        <tt>decorate</tt>
-                        instead to apply both the custom license validation
-                        function and the built-in license validation function.
                     </dd>
 <dt>Type</dt>
-<dd><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">ValidationFunction</abbr>: One of <tt>decorate</tt> or <tt>override</tt>. </dd>
+<dd><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">LicenseFunctionComposition</abbr>: One of <tt>decorate</tt> or <tt>override</tt>. 
+                Select
+                <tt>override</tt>
+                to apply only the custom function.
+                Select
+                <tt>decorate</tt>
+                to apply both the custom function and the built-in function.
+            </dd>
 <dt>Default</dt>
 <dd><tt>decorate</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e464" class="accordion-toggle"><tt>keyPairAlgorithm</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">KeyPairAlgorithm</abbr> [<tt>auto</tt>]</a></div>
-<div id="d24e464" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e468" class="accordion-toggle"><tt>keyPairAlgorithm</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">KeyPairAlgorithm</abbr> [<tt>auto</tt>]</a></div>
+<div id="d24e468" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -674,12 +670,12 @@
                         security providers which are installed in the JRE.
                     </dd>
 <dt>Type</dt>
-<dd><a class="externalLink" href="http://docs.oracle.com/javase/6/docs/technotes/guides/security/StandardNames.html#KeyPairGenerator"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">KeyPairAlgorithm</abbr></a>: One of <tt>auto</tt>, <tt>DSA</tt>, <tt>EC</tt> or <tt>RSA</tt>. </dd>
+<dd><a class="externalLink" href="http://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#KeyPairGenerator"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">KeyPairAlgorithm</abbr></a>: One of <tt>auto</tt>, <tt>DSA</tt>, <tt>EC</tt> or <tt>RSA</tt>. </dd>
 <dt>Default</dt>
 <dd><tt>auto</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e473" class="accordion-toggle"><tt>keyPairSize</tt>: <abbr title="A built-in datatype of XML Schema.">nonNegativeInteger</abbr> [<tt>0</tt>]</a></div>
-<div id="d24e473" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e477" class="accordion-toggle"><tt>keyPairSize</tt>: <abbr title="A built-in datatype of XML Schema.">nonNegativeInteger</abbr> [<tt>0</tt>]</a></div>
+<div id="d24e477" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -701,8 +697,8 @@
 <dt>Default</dt>
 <dd><tt>0</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e488" class="accordion-toggle"><tt>keyStoreType</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">KeyStoreType</abbr> [<tt>auto</tt>]</a></div>
-<div id="d24e488" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e492" class="accordion-toggle"><tt>keyStoreType</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">KeyStoreType</abbr> [<tt>auto</tt>]</a></div>
+<div id="d24e492" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -723,15 +719,15 @@
                         <tt>JCEKS</tt>.
                     </dd>
 <dt>Type</dt>
-<dd><a class="externalLink" href="http://docs.oracle.com/javase/6/docs/technotes/guides/security/StandardNames.html#KeyStore"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">KeyStoreType</abbr></a>: One of <tt>auto</tt>, <tt>JCEKS</tt>, <tt>JKS</tt> or <tt>PKCS12</tt>. 
+<dd><a class="externalLink" href="http://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#KeyStore"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">KeyStoreType</abbr></a>: One of <tt>auto</tt>, <tt>JCEKS</tt>, <tt>JKS</tt> or <tt>PKCS12</tt>. 
                 <tt>PKCS12</tt>
                 requires Java SE 8.
             </dd>
 <dt>Default</dt>
 <dd><tt>auto</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e512" class="accordion-toggle"><tt>licenseKeyFormat</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">LicenseKeyFormat</abbr> [<tt>V2/JSON</tt>]</a></div>
-<div id="d24e512" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e516" class="accordion-toggle"><tt>licenseKeyFormat</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">LicenseKeyFormat</abbr> [<tt>V2/JSON</tt>]</a></div>
+<div id="d24e516" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -755,8 +751,8 @@
 <dt>Default</dt>
 <dd><tt>V2/JSON</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e560" class="accordion-toggle"><tt>package</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr></a></div>
-<div id="d24e560" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e537" class="accordion-toggle"><tt>package</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr></a></div>
+<div id="d24e537" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -774,8 +770,8 @@
 <dt>Type</dt>
 <dd><a class="externalLink" href="http://www.w3.org/TR/xmlschema-2/#token"><abbr title="A built-in datatype of XML Schema.">token</abbr></a></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e587" class="accordion-toggle"><tt>pbeAlgorithm</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">PbeAlgorithm</abbr> [<tt>auto</tt>]</a></div>
-<div id="d24e587" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e564" class="accordion-toggle"><tt>pbeAlgorithm</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">PbeAlgorithm</abbr> [<tt>auto</tt>]</a></div>
+<div id="d24e564" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -796,12 +792,12 @@
                         <tt>PBEWithSHA1AndDESede</tt>.
                     </dd>
 <dt>Type</dt>
-<dd><a class="externalLink" href="http://docs.oracle.com/javase/6/docs/technotes/guides/security/StandardNames.html#Cipher"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">PbeAlgorithm</abbr></a>: One of <tt>auto</tt>, <tt>PBEWithMD5AndDES</tt>, <tt>PBEWithSHA1AndDESede</tt>, <tt>PBEWithHmacSHA1AndAES_128</tt>, <tt>PBEWithHmacSHA224AndAES_128</tt>, <tt>PBEWithHmacSHA256AndAES_128</tt>, <tt>PBEWithHmacSHA384AndAES_128</tt>, <tt>PBEWithHmacSHA512AndAES_128</tt>, <tt>PBEWithHmacSHA1AndAES_256</tt>, <tt>PBEWithHmacSHA224AndAES_256</tt>, <tt>PBEWithHmacSHA256AndAES_256</tt>, <tt>PBEWithHmacSHA384AndAES_256</tt> or <tt>PBEWithHmacSHA512AndAES_256</tt>. </dd>
+<dd><a class="externalLink" href="http://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Cipher"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">PbeAlgorithm</abbr></a>: One of <tt>auto</tt>, <tt>PBEWithMD5AndDES</tt>, <tt>PBEWithSHA1AndDESede</tt>, <tt>PBEWithHmacSHA1AndAES_128</tt>, <tt>PBEWithHmacSHA224AndAES_128</tt>, <tt>PBEWithHmacSHA256AndAES_128</tt>, <tt>PBEWithHmacSHA384AndAES_128</tt>, <tt>PBEWithHmacSHA512AndAES_128</tt>, <tt>PBEWithHmacSHA1AndAES_256</tt>, <tt>PBEWithHmacSHA224AndAES_256</tt>, <tt>PBEWithHmacSHA256AndAES_256</tt>, <tt>PBEWithHmacSHA384AndAES_256</tt> or <tt>PBEWithHmacSHA512AndAES_256</tt>. </dd>
 <dt>Default</dt>
 <dd><tt>auto</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e611" class="accordion-toggle"><tt>preferencesType</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">PreferencesType</abbr> [<tt>user</tt>]</a></div>
-<div id="d24e611" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e588" class="accordion-toggle"><tt>preferencesType</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">PreferencesType</abbr> [<tt>user</tt>]</a></div>
+<div id="d24e588" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -812,7 +808,7 @@
                         <tt>system</tt>
                         generally requires the JVM to be run with administrator
                         privileges or otherwise a
-                        <a class="externalLink" href="http://docs.oracle.com/javase/6/docs/api/java/util/prefs/BackingStoreException.html">
+                        <a class="externalLink" href="http://docs.oracle.com/javase/8/docs/api/java/util/prefs/BackingStoreException.html">
                             <tt>java.util.prefs.BackingStoreException</tt>
                         </a>
                         may get thrown by the generated integration tests.
@@ -822,8 +818,8 @@
 <dt>Default</dt>
 <dd><tt>user</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e629" class="accordion-toggle"><tt>privateKeyStoreFile</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>private.ks</tt>]</a></div>
-<div id="d24e629" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e606" class="accordion-toggle"><tt>privateKeyStoreFile</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>private.ks</tt>]</a></div>
+<div id="d24e606" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -839,8 +835,8 @@
 <dt>Default</dt>
 <dd><tt>private.ks</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e641" class="accordion-toggle"><tt>publicKeyStoreFile</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>public.ks</tt>]</a></div>
-<div id="d24e641" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e618" class="accordion-toggle"><tt>publicKeyStoreFile</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>public.ks</tt>]</a></div>
+<div id="d24e618" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -856,8 +852,8 @@
 <dt>Default</dt>
 <dd><tt>public.ks</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e654" class="accordion-toggle"><tt>signatureAlgorithm</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">SignatureAlgorithm</abbr> [<tt>auto</tt>]</a></div>
-<div id="d24e654" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e631" class="accordion-toggle"><tt>signatureAlgorithm</tt>: <abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">SignatureAlgorithm</abbr> [<tt>auto</tt>]</a></div>
+<div id="d24e631" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -876,12 +872,12 @@
                         are installed in the JRE/JDK.
                     </dd>
 <dt>Type</dt>
-<dd><a class="externalLink" href="http://docs.oracle.com/javase/6/docs/technotes/guides/security/StandardNames.html#Signature"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">SignatureAlgorithm</abbr></a>: One of <tt>auto</tt>, <tt>NONEwithDSA</tt>, <tt>SHA1withDSA</tt>, <tt>SHA224withDSA</tt>, <tt>SHA256withDSA</tt>, <tt>NONEwithECDSA</tt>, <tt>SHA1withECDSA</tt>, <tt>SHA224withECDSA</tt>, <tt>SHA256withECDSA</tt>, <tt>SHA384withECDSA</tt>, <tt>SHA512withECDSA</tt>, <tt>NONEwithRSA</tt>, <tt>SHA1withRSA</tt>, <tt>SHA224withRSA</tt>, <tt>SHA256withRSA</tt>, <tt>SHA384withRSA</tt> or <tt>SHA512withRSA</tt>. </dd>
+<dd><a class="externalLink" href="http://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Signature"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">SignatureAlgorithm</abbr></a>: One of <tt>auto</tt>, <tt>NONEwithDSA</tt>, <tt>SHA1withDSA</tt>, <tt>SHA224withDSA</tt>, <tt>SHA256withDSA</tt>, <tt>NONEwithECDSA</tt>, <tt>SHA1withECDSA</tt>, <tt>SHA224withECDSA</tt>, <tt>SHA256withECDSA</tt>, <tt>SHA384withECDSA</tt>, <tt>SHA512withECDSA</tt>, <tt>NONEwithRSA</tt>, <tt>SHA1withRSA</tt>, <tt>SHA224withRSA</tt>, <tt>SHA256withRSA</tt>, <tt>SHA384withRSA</tt> or <tt>SHA512withRSA</tt>. </dd>
 <dt>Default</dt>
 <dd><tt>auto</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e669" class="accordion-toggle"><tt>trueLicenseVersion</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>2.6.6</tt>]</a></div>
-<div id="d24e669" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e673" class="accordion-toggle"><tt>trueLicenseVersion</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>3.0.0</tt>]</a></div>
+<div id="d24e673" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -891,10 +887,10 @@
 <dt>Type</dt>
 <dd><a class="externalLink" href="http://www.w3.org/TR/xmlschema-2/#token"><abbr title="A built-in datatype of XML Schema.">token</abbr></a></dd>
 <dt>Default</dt>
-<dd><tt>2.6.6</tt></dd></dl></div></div></div>
+<dd><tt>3.0.0</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e678" class="accordion-toggle"><tt>verboseCli</tt>: <abbr title="A built-in datatype of XML Schema.">boolean</abbr> [<tt>false</tt>]</a></div>
-<div id="d24e678" class="accordion-body collapse">
+<div class="accordion-heading"><a href="#d24e682" class="accordion-toggle"><tt>verboseCli</tt>: <abbr title="A built-in datatype of XML Schema.">boolean</abbr> [<tt>false</tt>]</a></div>
+<div id="d24e682" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
 <dt>Description</dt>
@@ -928,8 +924,8 @@
         <div class="row">
             <p class="pull-left">Copyright &copy;2005&#x2013;2017
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-09-29</li>
-          <li id="projectVersion" class="pull-right">Version: 2.6.6</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-03</li>
+          <li id="projectVersion" class="pull-right">Version: 3.0.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

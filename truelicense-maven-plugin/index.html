@@ -150,9 +150,9 @@
         &lt;plugins&gt;
             [...]
             &lt;plugin&gt;
-                &lt;groupId&gt;net.java.truelicense&lt;/groupId&gt;
+                &lt;groupId&gt;net.truelicense&lt;/groupId&gt;
                 &lt;artifactId&gt;truelicense-maven-plugin&lt;/artifactId&gt;
-                &lt;version&gt;2.6.6&lt;/version&gt;
+                &lt;version&gt;3.0.0&lt;/version&gt;
                 &lt;executions&gt;
                     &lt;execution&gt;
                         &lt;goals&gt;
@@ -173,7 +173,7 @@
 <p>When generating source files, you can use the functions <tt>java.obfuscatedString()</tt> and <tt>scala.obfuscatedString()</tt> in template files. These functions expect a string parameter. For example, if you define a property named <tt>password</tt> in your POM, then you can use the following template file for obfuscating it in the Java source code:</p>
 
 <div class="source">
-<div class="source"><pre class="prettyprint">import net.java.truelicense.obfuscate.ObfuscatedString;
+<div class="source"><pre class="prettyprint">import net.truelicense.obfuscate.ObfuscatedString;
 
 class Test {
 
@@ -205,9 +205,9 @@ class Test {
         &lt;plugins&gt;
             [...]
             &lt;plugin&gt;
-                &lt;groupId&gt;net.java.truelicense&lt;/groupId&gt;
+                &lt;groupId&gt;net.truelicense&lt;/groupId&gt;
                 &lt;artifactId&gt;truelicense-maven-plugin&lt;/artifactId&gt;
-                &lt;version&gt;2.6.6&lt;/version&gt;
+                &lt;version&gt;3.0.0&lt;/version&gt;
                 &lt;executions&gt;
                     &lt;execution&gt;
                         &lt;goals&gt;
@@ -222,13 +222,13 @@ class Test {
     &lt;/build&gt;
 &lt;/project&gt;
 </pre></div></div>
-<p>The default configuration replaces each constant string value annotated by <a href="../apidocs/net/java/truelicense/obfuscate/Obfuscate.html"><tt>net.java.truelicense.obfuscate.Obfuscate</tt></a> with a call to a synthetic method which evaluates an obfuscated Java byte code expression to compute the original constant string value again. Please refer to the documentation of the respective goal for configuration options.</p>
+<p>The default configuration replaces each constant string value annotated by <a href="../apidocs/net/truelicense/obfuscate/Obfuscate.html"><tt>net.truelicense.obfuscate.Obfuscate</tt></a> with a call to a synthetic method which evaluates an obfuscated Java byte code expression to compute the original constant string value again. Please refer to the documentation of the respective goal for configuration options.</p>
 <div class="section">
 <h4><a name="Using_The_Obfuscate_Annotation"></a>Using The <tt>@Obfuscate</tt> Annotation</h4>
 <p>When using the default scope, you need to annotate fields with constant string values with <tt>@Obfuscate</tt> like this:</p>
 
 <div class="source">
-<div class="source"><pre class="prettyprint">import net.java.truelicense.obfuscate.Obfuscate;
+<div class="source"><pre class="prettyprint">import net.truelicense.obfuscate.Obfuscate;
 
 class Test {
 
@@ -257,8 +257,8 @@ class Test {
         <div class="row">
             <p class="pull-left">Copyright &copy;2005&#x2013;2017
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-09-29</li>
-          <li id="projectVersion" class="pull-right">Version: 2.6.6</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-03</li>
+          <li id="projectVersion" class="pull-right">Version: 3.0.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

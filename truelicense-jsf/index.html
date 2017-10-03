@@ -140,13 +140,13 @@
 </pre></div></div>
 <p>The <tt>&lt;tl:wizard&gt;</tt> component renders a dialog for license consumer management. The output is bare-boned HTML - no CSS decoration is provided. However, all rendered HTML tags use the <tt>id</tt> and <tt>class</tt> attributes so that you can easily style them with your own CSS.</p>
 <p>The boolean attribute <tt>uninstallable</tt> controls whether license key uninstallation shall be supported by the wizard component.</p>
-<p>The EL expression for the <tt>manager</tt> attribute needs to resolve to a license consumer manager of the interface type <tt>net.java.truelicense.core.LicenseConsumerManager</tt>. If you have used the <a href="../truelicense-maven-archetype/index.html">TrueLicense Maven Archetype</a> to generate a project, then you just need to annotate the <tt>LicensingSchema</tt> class in the KeyMgr module like this:</p>
+<p>The EL expression for the <tt>manager</tt> attribute needs to resolve to a license consumer manager of the interface type <tt>net.truelicense.api.ConsumerLicenseManager</tt>. If you have used the <a href="../truelicense-maven-archetype/index.html">TrueLicense Maven Archetype</a> to generate a project, then you just need to annotate the <tt>LicensingSchema</tt> class in the KeyMgr module like this:</p>
 
 <div class="source">
 <div class="source"><pre class="prettyprint">package ${package}.keymgr;
 
 import javax.inject.Named
-import net.java.truelicense.core.LicenseConsumerManager;
+import net.truelicense.api.ConsumerLicenseManager;
 [...]
 
 @Named
@@ -154,11 +154,11 @@ public class LicensingSchema {
 
     [...]
 
-    /** Returns the first license consumer manager in the configured chain-of-responsibility. [...] */
+    /** Returns the first consumer license manager in the configured chain-of-responsibility. [...] */
     public static LicenseConsumerManager manager() { [...] }
 }
 </pre></div></div>
-<p>The <tt>@Named</tt> annotation makes the <tt>LicensingSchema</tt> class available to EL. The returned license consumer manager has singleton scope, nevertheless what the framework thinks it is.</p></div></div>
+<p>The <tt>@Named</tt> annotation makes the <tt>LicensingSchema</tt> class available to EL. The returned consumer license manager has singleton scope, nevertheless what the framework thinks it is.</p></div></div>
         </div>
     </div>
     <hr/>
@@ -167,8 +167,8 @@ public class LicensingSchema {
         <div class="row">
             <p class="pull-left">Copyright &copy;2005&#x2013;2017
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-09-29</li>
-          <li id="projectVersion" class="pull-right">Version: 2.6.6</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-03</li>
+          <li id="projectVersion" class="pull-right">Version: 3.0.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

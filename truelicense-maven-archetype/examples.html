@@ -122,14 +122,14 @@
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ mvn archetype:generate -B \
-    -DarchetypeGroupId=net.java.truelicense \
+    -DarchetypeGroupId=net.truelicense \
     -DarchetypeArtifactId=truelicense-maven-archetype \
-    -DarchetypeVersion=2.6.6 \
+    -DarchetypeVersion=3.0.0 \
     -DartifactId='basic' \
-    -DcompanyName='Company Inc.' \
+    -Dcompany='Company Inc.' \
     -DgroupId='com.company.product' \
-    -DlicensingSubject='Product 1' \
     -Dpassword='test1234' \
+    -Dsubject='Product 1' \
     -Dversion='1.0-SNAPSHOT'
 </pre></div></div>
 <p></div>
@@ -139,16 +139,16 @@
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ mvn archetype:generate -B \
-    -DarchetypeGroupId=net.java.truelicense \
+    -DarchetypeGroupId=net.truelicense \
     -DarchetypeArtifactId=truelicense-maven-archetype \
-    -DarchetypeVersion=2.6.6 \
+    -DarchetypeVersion=3.0.0 \
     -DartifactId='freeTrialPeriod' \
-    -DcompanyName='Company Inc.' \
+    -Dcompany='Company Inc.' \
     -DfreeTrialPeriod='30' \
     -DftpSecretMarkerClass='sun.security.provider.Sun' \
     -DgroupId='com.company.product' \
-    -DlicensingSubject='Product 1' \
     -Dpassword='test1234' \
+    -Dsubject='Product 1' \
     -Dversion='1.0-SNAPSHOT'
 </pre></div></div>
 <p></div>
@@ -158,89 +158,89 @@
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ mvn archetype:generate -B \
-    -DarchetypeGroupId=net.java.truelicense \
+    -DarchetypeGroupId=net.truelicense \
     -DarchetypeArtifactId=truelicense-maven-archetype \
-    -DarchetypeVersion=2.6.6 \
+    -DarchetypeVersion=3.0.0 \
     -DartifactId='multipleProductEditions' \
-    -DcompanyName='Company Inc.' \
+    -Dcompany='Company Inc.' \
     -Deditions='enterprise standard' \
     -DgroupId='com.company.product' \
-    -DlicensingSubject='Product 1' \
     -Dpassword='test1234' \
+    -Dsubject='Product 1' \
     -Dversion='1.0-SNAPSHOT'
 </pre></div></div>
 <p></div>
 <div class="section">
 <h3><a name="Hide_Uninstall_Action"></a>Hide Uninstall Action</h3>
-<div xmlns="http://www.w3.org/1999/xhtml">  This example adds  <tt>hideUninstallAction=true</tt>  to the Basic Configuration example in order to remove the  <i>Uninstall ${licensingSubject} license key</i>  action from the license wizard dialog.  </div></p>
+<div xmlns="http://www.w3.org/1999/xhtml">  This example adds  <tt>hideUninstallAction=true</tt>  to the Basic Configuration example in order to remove the  <i>Uninstall ${subject} license key</i>  action from the license wizard dialog.  </div></p>
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ mvn archetype:generate -B \
-    -DarchetypeGroupId=net.java.truelicense \
+    -DarchetypeGroupId=net.truelicense \
     -DarchetypeArtifactId=truelicense-maven-archetype \
-    -DarchetypeVersion=2.6.6 \
+    -DarchetypeVersion=3.0.0 \
     -DartifactId='hideUninstallAction' \
-    -DcompanyName='Company Inc.' \
+    -Dcompany='Company Inc.' \
     -DgroupId='com.company.product' \
     -DhideUninstallAction='true' \
-    -DlicensingSubject='Product 1' \
     -Dpassword='test1234' \
+    -Dsubject='Product 1' \
     -Dversion='1.0-SNAPSHOT'
 </pre></div></div>
 <p></div>
 <div class="section">
 <h3><a name="Disable_License_Wizard"></a>Disable License Wizard</h3>
-<div xmlns="http://www.w3.org/1999/xhtml">  This example adds  <tt>disableLicenseWizard=true</tt>  to the Basic Configuration example in order to completely remove  the license wizard dialog from the generated code.  </div></p>
+<div xmlns="http://www.w3.org/1999/xhtml">  This example adds  <tt>disableWizard=true</tt>  to the Basic Configuration example in order to completely remove  the license wizard dialog from the generated code.  </div></p>
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ mvn archetype:generate -B \
-    -DarchetypeGroupId=net.java.truelicense \
+    -DarchetypeGroupId=net.truelicense \
     -DarchetypeArtifactId=truelicense-maven-archetype \
-    -DarchetypeVersion=2.6.6 \
-    -DartifactId='disableLicenseWizard' \
-    -DcompanyName='Company Inc.' \
-    -DdisableLicenseWizard='true' \
+    -DarchetypeVersion=3.0.0 \
+    -DartifactId='disableWizard' \
+    -Dcompany='Company Inc.' \
+    -DdisableWizard='true' \
     -DgroupId='com.company.product' \
-    -DlicensingSubject='Product 1' \
     -Dpassword='test1234' \
+    -Dsubject='Product 1' \
     -Dversion='1.0-SNAPSHOT'
 </pre></div></div>
 <p></div>
 <div class="section">
-<h3><a name="Custom_License_Authorization"></a>Custom License Authorization</h3>
-<div xmlns="http://www.w3.org/1999/xhtml">  This example adds  <tt>keyGenLicenseAuthorizationClass=com.company.product.keygen.Main$NoLicenseAuthorization</tt>  and  <tt>keyMgrLicenseAuthorizationClass=com.company.product.keymgr.Main$noLicenseAuthorization</tt>  to the Basic Configuration example in order to implement a custom  license authorization.  </div></p>
+<h3><a name="Custom_License_Management_Authorization"></a>Custom License Management Authorization</h3>
+<div xmlns="http://www.w3.org/1999/xhtml">  This example adds  <tt>keyGenAuthorizationClass=net.truelicense.core.TrueLicenseManagementAuthorization</tt>  and  <tt>keyMgrAuthorizationClass=net.truelicense.core.TrueLicenseManagementAuthorization</tt>  to the Basic Configuration example in order to implement a custom  license authorization.  </div></p>
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ mvn archetype:generate -B \
-    -DarchetypeGroupId=net.java.truelicense \
+    -DarchetypeGroupId=net.truelicense \
     -DarchetypeArtifactId=truelicense-maven-archetype \
-    -DarchetypeVersion=2.6.6 \
-    -DartifactId='customLicenseAuthorization' \
-    -DcompanyName='Company Inc.' \
+    -DarchetypeVersion=3.0.0 \
+    -DartifactId='customAuthorization' \
+    -Dcompany='Company Inc.' \
     -DgroupId='com.company.product' \
-    -DkeyGenLicenseAuthorizationClass='com.company.product.keygen.Main$NoLicenseAuthorization' \
-    -DkeyMgrLicenseAuthorizationClass='com.company.product.keymgr.Main$NoLicenseAuthorization' \
-    -DlicensingSubject='Product 1' \
+    -DkeyGenAuthorizationClass='net.truelicense.core.TrueLicenseManagementAuthorization' \
+    -DkeyMgrAuthorizationClass='net.truelicense.core.TrueLicenseManagementAuthorization' \
     -Dpassword='test1234' \
+    -Dsubject='Product 1' \
     -Dversion='1.0-SNAPSHOT'
 </pre></div></div>
 <p></div>
 <div class="section">
 <h3><a name="Custom_License_Validation"></a>Custom License Validation</h3>
-<div xmlns="http://www.w3.org/1999/xhtml">  This example adds  <tt>keyGenLicenseValidationClass=com.company.product.keygen.Main$NoLicenseValidation</tt>  and  <tt>keyMgrLicenseValidationClass=com.company.product.keymgr.Main$NoLicenseValidation</tt>  to the Basic Configuration example in order to decorate the basic  license validation function in the Key Generator and Key Manager  modules with the named custom class.  </div></p>
+<div xmlns="http://www.w3.org/1999/xhtml">  This example adds  <tt>keyGenValidationClass=com.company.product.keygen.Main$NoLicenseValidation</tt>  and  <tt>keyMgrValidationClass=com.company.product.keymgr.Main$NoLicenseValidation</tt>  to the Basic Configuration example in order to decorate the basic  license validation function in the Key Generator and Key Manager  modules with the named custom class.  </div></p>
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ mvn archetype:generate -B \
-    -DarchetypeGroupId=net.java.truelicense \
+    -DarchetypeGroupId=net.truelicense \
     -DarchetypeArtifactId=truelicense-maven-archetype \
-    -DarchetypeVersion=2.6.6 \
-    -DartifactId='customLicenseValidation' \
-    -DcompanyName='Company Inc.' \
+    -DarchetypeVersion=3.0.0 \
+    -DartifactId='customValidation' \
+    -Dcompany='Company Inc.' \
     -DgroupId='com.company.product' \
-    -DkeyGenLicenseValidationClass='com.company.product.keygen.Main$NoLicenseValidation' \
-    -DkeyMgrLicenseValidationClass='com.company.product.keymgr.Main$NoLicenseValidation' \
-    -DlicensingSubject='Product 1' \
+    -DkeyGenValidationClass='com.company.product.keygen.Main$NoLicenseValidation' \
+    -DkeyMgrValidationClass='com.company.product.keymgr.Main$NoLicenseValidation' \
     -Dpassword='test1234' \
+    -Dsubject='Product 1' \
     -Dversion='1.0-SNAPSHOT'
 </pre></div></div>
 <p></div>
@@ -250,15 +250,15 @@
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ mvn archetype:generate -B \
-    -DarchetypeGroupId=net.java.truelicense \
+    -DarchetypeGroupId=net.truelicense \
     -DarchetypeArtifactId=truelicense-maven-archetype \
-    -DarchetypeVersion=2.6.6 \
+    -DarchetypeVersion=3.0.0 \
     -DartifactId='customClock' \
-    -DcompanyName='Company Inc.' \
+    -Dcompany='Company Inc.' \
     -DgroupId='com.company.product' \
     -DkeyMgrClockClass='com.company.product.keymgr.Main$SystemClock' \
-    -DlicensingSubject='Product 1' \
     -Dpassword='test1234' \
+    -Dsubject='Product 1' \
     -Dversion='1.0-SNAPSHOT'
 </pre></div></div>
 <p></div>
@@ -268,15 +268,15 @@
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ mvn archetype:generate -B \
-    -DarchetypeGroupId=net.java.truelicense \
+    -DarchetypeGroupId=net.truelicense \
     -DarchetypeArtifactId=truelicense-maven-archetype \
-    -DarchetypeVersion=2.6.6 \
+    -DarchetypeVersion=3.0.0 \
     -DartifactId='v2XmlLicenseKeyFormat' \
-    -DcompanyName='Company Inc.' \
+    -Dcompany='Company Inc.' \
     -DgroupId='com.company.product' \
     -DlicenseKeyFormat='V2/XML' \
-    -DlicensingSubject='Product 1' \
     -Dpassword='test1234' \
+    -Dsubject='Product 1' \
     -Dversion='1.0-SNAPSHOT'
 </pre></div></div>
 <hr />
@@ -299,8 +299,8 @@
         <div class="row">
             <p class="pull-left">Copyright &copy;2005&#x2013;2017
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-09-29</li>
-          <li id="projectVersion" class="pull-right">Version: 2.6.6</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-03</li>
+          <li id="projectVersion" class="pull-right">Version: 3.0.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

@@ -124,19 +124,13 @@ files with all properties in the Maven POM.</td></tr>
 Call <code>mvn truelicense:help -Ddetail=true
 -Dgoal=&lt;goal-name&gt;</code> to display parameter details.</td></tr>
 <tr class="a">
-<td><a href="obfuscate-mojo.html">truelicense:obfuscate</a></td>
-<td><strong>Deprecated.</strong> Use the <code>obfuscate-main-classes</code> goal instead.</td></tr>
-<tr class="b">
 <td><a href="obfuscate-main-classes-mojo.html">truelicense:obfuscate-main-classes</a></td>
 <td>Transforms the byte code of the main class files in order to
 obfuscate all constant string values in scope.</td></tr>
-<tr class="a">
+<tr class="b">
 <td><a href="obfuscate-test-classes-mojo.html">truelicense:obfuscate-test-classes</a></td>
 <td>Transforms the byte code of the test class files in order to
-obfuscate all constant string values in scope.</td></tr>
-<tr class="b">
-<td><a href="test-obfuscate-mojo.html">truelicense:test-obfuscate</a></td>
-<td><strong>Deprecated.</strong> Use the <code>obfuscate-test-classes</code> goal instead.</td></tr></table>
+obfuscate all constant string values in scope.</td></tr></table>
 <div class="section">
 <h3><a name="System_Requirements"></a>System Requirements</h3><a name="System_Requirements"></a>
 <p>The following specifies the minimum requirements to run this Maven plugin:</p>
@@ -146,7 +140,7 @@ obfuscate all constant string values in scope.</td></tr>
 <td>3.3.9</td></tr>
 <tr class="b">
 <td>JDK</td>
-<td>1.6</td></tr>
+<td>1.8</td></tr>
 <tr class="a">
 <td>Memory</td>
 <td>No minimum requirement.</td></tr>
@@ -163,9 +157,9 @@ obfuscate all constant string values in scope.</td></tr>
     &lt;pluginManagement&gt;
       &lt;plugins&gt;
         &lt;plugin&gt;
-          &lt;groupId&gt;net.java.truelicense&lt;/groupId&gt;
+          &lt;groupId&gt;net.truelicense&lt;/groupId&gt;
           &lt;artifactId&gt;truelicense-maven-plugin&lt;/artifactId&gt;
-          &lt;version&gt;2.6.6&lt;/version&gt;
+          &lt;version&gt;3.0.0&lt;/version&gt;
         &lt;/plugin&gt;
         ...
       &lt;/plugins&gt;
@@ -173,9 +167,9 @@ obfuscate all constant string values in scope.</td></tr>
     &lt;!-- To use the plugin goals in your POM or parent POM --&gt;
     &lt;plugins&gt;
       &lt;plugin&gt;
-        &lt;groupId&gt;net.java.truelicense&lt;/groupId&gt;
+        &lt;groupId&gt;net.truelicense&lt;/groupId&gt;
         &lt;artifactId&gt;truelicense-maven-plugin&lt;/artifactId&gt;
-        &lt;version&gt;2.6.6&lt;/version&gt;
+        &lt;version&gt;3.0.0&lt;/version&gt;
       &lt;/plugin&gt;
       ...
     &lt;/plugins&gt;
@@ -192,8 +186,8 @@ obfuscate all constant string values in scope.</td></tr>
         <div class="row">
             <p class="pull-left">Copyright &copy;2005&#x2013;2017
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-09-29</li>
-          <li id="projectVersion" class="pull-right">Version: 2.6.6</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-03</li>
+          <li id="projectVersion" class="pull-right">Version: 3.0.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

@@ -120,12 +120,12 @@
 <p>The Key Manager Service module is designed to be embedded in a <abbr title="Web ARchive">WAR</abbr> file which gets deployed to a Servlet container like <a class="externalLink" href="http://tomcat.apache.org/">Apache Tomcat</a>. Therefore, this module does not provide a standalone <abbr title="Java ARchive">JAR</abbr>. For testing purposes, there is a main class which runs a simple <abbr title="HyperText Transfer Protocol">HTTP</abbr> server with the embedded WSI. You can start it using the following command:</p>
 
 <div class="source">
-<div class="source"><pre class="prettyprint">$ mvn test-compile exec:java -Dexec.mainClass=${package}.keymgrsvc.Main \
-    -Dexec.classpathScope=test -pl *-keymgrsvc
+<div class="source"><pre class="prettyprint">$ mvn compile exec:java -Dexec.mainClass=${package}.keymgrsrv.Main \
+    -Dexec.classpathScope=test -pl *-keymgrsrv
 </pre></div></div>
 <div class="section">
 <h4><a name="Installing_a_License_Key"></a>Installing a License Key</h4>
-<p>Once the server is running, you can install the license key which you may have created when <a href="using-cli.html">using the CLI</a> like this:</p>
+<p>Once the server is running, you can install the license key which you may have generated when <a href="using-cli.html">using the CLI</a> like this:</p>
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ curl -v http://localhost:9998/license --data-binary @product.lic
@@ -147,11 +147,11 @@
 &lt;
 * Connection #0 to host localhost left intact
 </pre></div></div>
-<p>Note that <tt>@product.lic</tt> references the license key file which has been previously created.</p>
+<p>Note that <tt>@product.lic</tt> references the license key file which has been previously generated.</p>
 <p>The server responds with the status code 204 to indicate that the operation succeeded with an empty response entity.</p></div>
 <div class="section">
-<h4><a name="Viewing_the_License_Key"></a>Viewing the License Key</h4>
-<p>You can view the installed license key using:</p>
+<h4><a name="Loading_the_License_Key"></a>Loading the License Key</h4>
+<p>You can load the installed license key using:</p>
 
 <div class="source">
 <div class="source"><pre class="prettyprint">$ curl -v http://localhost:9998/license
@@ -337,8 +337,8 @@ java.io.FileNotFoundException: Cannot locate the key &quot;Product 1&quot; in th
         <div class="row">
             <p class="pull-left">Copyright &copy;2005&#x2013;2017
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-09-29</li>
-          <li id="projectVersion" class="pull-right">Version: 2.6.6</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-03</li>
+          <li id="projectVersion" class="pull-right">Version: 3.0.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

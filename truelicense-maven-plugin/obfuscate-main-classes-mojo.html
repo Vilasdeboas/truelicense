@@ -108,7 +108,7 @@
       
 <p><b>Full name</b>:</p>
       
-<p>net.java.truelicense:truelicense-maven-plugin:2.6.6:obfuscate-main-classes</p>
+<p>net.truelicense:truelicense-maven-plugin:3.0.0:obfuscate-main-classes</p>
       
 <p><b>Description</b>:</p>
       
@@ -144,39 +144,6 @@ obfuscate all constant string values in scope.</div>
           
 <tr class="b">
             
-<td><b><a href="#backup">backup</a></b></td>
-            
-<td><tt>boolean</tt></td>
-            
-<td><tt>TrueLicense 2.4</tt></td>
-            
-<td><b>Deprecated.</b> This (non-)feature will be removed in TrueLicense 3.0.<br /><b>Default value is</b>: <tt>false</tt>.<br /><b>User property is</b>: <tt>truelicense.obfuscate.backup</tt>.<br /></td>
-          </tr>
-          
-<tr class="a">
-            
-<td><b><a href="#backupExtension">backupExtension</a></b></td>
-            
-<td><tt>String</tt></td>
-            
-<td><tt>TrueLicense 2.4</tt></td>
-            
-<td><b>Deprecated.</b> This (non-)feature will be removed in TrueLicense 3.0.<br /><b>Default value is</b>: <tt>zip</tt>.<br /><b>User property is</b>: <tt>truelicense.obfuscate.backupExtension</tt>.<br /></td>
-          </tr>
-          
-<tr class="b">
-            
-<td><b><a href="#backupPrefix">backupPrefix</a></b></td>
-            
-<td><tt>String</tt></td>
-            
-<td><tt>TrueLicense 2.4</tt></td>
-            
-<td><b>Deprecated.</b> This (non-)feature will be removed in TrueLicense 3.0.<br /><b>Default value is</b>: <tt>classes</tt>.<br /><b>User property is</b>: <tt>truelicense.obfuscate.backupPrefix</tt>.<br /></td>
-          </tr>
-          
-<tr class="a">
-            
 <td><b><a href="#intern">intern</a></b></td>
             
 <td><tt>boolean</tt></td>
@@ -189,7 +156,7 @@ again. Use this to preserve the identity relation of constant
 string values if required.<br /><b>Default value is</b>: <tt>true</tt>.<br /><b>User property is</b>: <tt>truelicense.obfuscate.intern</tt>.<br /></td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#maxBytes">maxBytes</a></b></td>
             
@@ -200,7 +167,7 @@ string values if required.<br /><b>Default value is</b>: <tt>true</tt>.<br /><b>
 <td>The maximum allowed size of a class file in bytes.<br /><b>Default value is</b>: <tt>65536</tt>.<br /><b>User property is</b>: <tt>truelicense.obfuscate.maxBytes</tt>.<br /></td>
           </tr>
           
-<tr class="a">
+<tr class="b">
             
 <td><b><a href="#methodNameFormat">methodNameFormat</a></b></td>
             
@@ -214,7 +181,7 @@ identifier for the obfuscation stage and its second parameter is an
 integer index for the synthesized method.<br /><b>Default value is</b>: <tt>_%s#%d</tt>.<br /><b>User property is</b>: <tt>truelicense.obfuscate.methodNameFormat</tt>.<br /></td>
           </tr>
           
-<tr class="b">
+<tr class="a">
             
 <td><b><a href="#scope">scope</a></b></td>
             
@@ -242,63 +209,6 @@ you should <i>not</i> use this in general.</li>
 <div class="section">
 <h3><a name="Parameter_Details"></a>Parameter Details</h3>
         
-<p><b><a name="backup">backup</a>:</b></p>
-        
-<div><b>Deprecated.</b> This (non-)feature will be removed in TrueLicense 3.0.</div>
-        
-<div>Whether or not the class files shall get backed up to a JAR file
-before processing them.</div>
-        
-<ul>
-          
-<li><b>Type</b>: <tt>boolean</tt></li>
-          
-<li><b>Since</b>: <tt>TrueLicense 2.4</tt></li>
-          
-<li><b>Required</b>: <tt>No</tt></li>
-          
-<li><b>User Property</b>: <tt>truelicense.obfuscate.backup</tt></li>
-          
-<li><b>Default</b>: <tt>false</tt></li>
-        </ul><hr />
-<p><b><a name="backupExtension">backupExtension</a>:</b></p>
-        
-<div><b>Deprecated.</b> This (non-)feature will be removed in TrueLicense 3.0.</div>
-        
-<div>The extension of the backup directory with the original class
-files: Use <tt>&quot;zip&quot;</tt> to create a ZIP file as the backup
-directory.</div>
-        
-<ul>
-          
-<li><b>Type</b>: <tt>java.lang.String</tt></li>
-          
-<li><b>Since</b>: <tt>TrueLicense 2.4</tt></li>
-          
-<li><b>Required</b>: <tt>No</tt></li>
-          
-<li><b>User Property</b>: <tt>truelicense.obfuscate.backupExtension</tt></li>
-          
-<li><b>Default</b>: <tt>zip</tt></li>
-        </ul><hr />
-<p><b><a name="backupPrefix">backupPrefix</a>:</b></p>
-        
-<div><b>Deprecated.</b> This (non-)feature will be removed in TrueLicense 3.0.</div>
-        
-<div>The prefix of the backup JAR file with the original class files.</div>
-        
-<ul>
-          
-<li><b>Type</b>: <tt>java.lang.String</tt></li>
-          
-<li><b>Since</b>: <tt>TrueLicense 2.4</tt></li>
-          
-<li><b>Required</b>: <tt>No</tt></li>
-          
-<li><b>User Property</b>: <tt>truelicense.obfuscate.backupPrefix</tt></li>
-          
-<li><b>Default</b>: <tt>classes</tt></li>
-        </ul><hr />
 <p><b><a name="intern">intern</a>:</b></p>
         
 <div>Whether or not a call to <tt>java.lang.String.intern()</tt>
@@ -371,7 +281,7 @@ you should <i>not</i> use this in general.</li>
         
 <ul>
           
-<li><b>Type</b>: <tt>net.java.truelicense.maven.plugin.Scope</tt></li>
+<li><b>Type</b>: <tt>net.truelicense.maven.plugin.obfuscation.Scope</tt></li>
           
 <li><b>Since</b>: <tt>TrueLicense 2.4</tt></li>
           
@@ -393,8 +303,8 @@ you should <i>not</i> use this in general.</li>
         <div class="row">
             <p class="pull-left">Copyright &copy;2005&#x2013;2017
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-09-29</li>
-          <li id="projectVersion" class="pull-right">Version: 2.6.6</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-03</li>
+          <li id="projectVersion" class="pull-right">Version: 3.0.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

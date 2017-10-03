@@ -126,24 +126,24 @@
     &lt;/properties&gt;
 &lt;/project&gt;
 </pre></div></div>
-<p>Its contents are a list of <abbr title="eXtensible Markup Language">XML</abbr> elements in the form <tt>&lt;name&gt;value&lt;/name&gt;</tt>. Each element defines a property name and value. These properties are used for code generation, e.g. there is a property named <tt>licensingSubject</tt> whose value defines the licensing subject - see below. Their values have been computed from the property values you have provided to the TrueLicense Maven Archetype when generating your project.</p>
+<p>Its contents are a list of <abbr title="eXtensible Markup Language">XML</abbr> elements in the form <tt>&lt;name&gt;value&lt;/name&gt;</tt>. Each element defines a property name and value. These properties are used for code generation, e.g. there is a property named <tt>subject</tt> whose value defines the subject of the license management - see below. Their values have been computed from the property values you have provided to the TrueLicense Maven Archetype when generating your project.</p>
 <div class="section">
 <h4><a name="Warning"></a>Warning</h4>
 <p><b>Changing the property values in the <tt>pom.xml</tt> file generally breaks the compatibility with existing license keys!</b> Don&#x2019;t do this except for the following use cases as explained below. If you have not already done so, then <b>please <a href="setting-up-vcs.html">set-up a VCS</a> for your project now!</b></p>
 <hr /></div></div>
 <div class="section">
 <h3><a name="Limiting_License_Key_Validity"></a>Limiting License Key Validity</h3>
-<p>Let&#x2019;s assume you want to limit the validity of the license keys for your software product to a particular version number range, e.g. the same major version number. Then you should include this version number range, e.g. the major version number 1, in the value of the property named <tt>licensingSubject</tt>:</p>
+<p>Let&#x2019;s assume you want to limit the validity of the license keys for your software product to a particular version number range, e.g. the same major version number. Then you should include this version number range, e.g. the major version number 1, in the value of the property named <tt>subject</tt>:</p>
 
 <div class="source">
-<div class="source"><pre class="prettyprint">&lt;licensingSubject&gt;Product 1&lt;/licensingSubject&gt;
+<div class="source"><pre class="prettyprint">&lt;subject&gt;Product 1&lt;/subject&gt;
 </pre></div></div>
 <p>Later, when you want to transition to a new version number range, e.g. from major version number 1 to 2, then all you have to do in order to invalidate all previously generated license keys is to update the property value accordingly:</p>
 
 <div class="source">
-<div class="source"><pre class="prettyprint">&lt;licensingSubject&gt;Product 2&lt;/licensingSubject&gt;
+<div class="source"><pre class="prettyprint">&lt;subject&gt;Product 2&lt;/subject&gt;
 </pre></div></div>
-<p>It does not matter how you format the version number range in the licensing subject because the validation function simply checks the equality of the complete string. So if you like, you could also set the property value to <tt>Product 1.x</tt> or <tt>Product 2.x</tt> instead of <tt>Product 1</tt> or <tt>Product 2</tt>, respectively. If an invalid license key is found by TrueLicense, e.g. because a user hasn&#x2019;t bought another license key for your new release, then a <a href="../apidocs/net/java/truelicense/core/LicenseValidationException.html"><tt>net.java.truelicense.core.LicenseValidationException</tt></a> gets thrown.</p>
+<p>It does not matter how you format the version number range in the licensing subject because the validation function simply checks the equality of the complete string. So if you like, you could also set the property value to <tt>Product 1.x</tt> or <tt>Product 2.x</tt> instead of <tt>Product 1</tt> or <tt>Product 2</tt>, respectively. If an invalid license key is found by TrueLicense, e.g. because a user hasn&#x2019;t bought another license key for your new release, then a <a href="../apidocs/net/truelicense/api/LicenseValidationException.html"><tt>net.truelicense.api.LicenseValidationException</tt></a> gets thrown.</p>
 <hr /></div>
 <div class="section">
 <h3><a name="Adding_an_Edition"></a>Adding an Edition</h3>
@@ -207,10 +207,10 @@
 <p>Let&#x2019;s assume you want to update your project and benefit from the latest improvements in TrueLicense. In this case, you need to generate a <i>new project</i> and customize it so that it&#x2019;s fully compatible with existing license keys, i.e. it must be possible to share the same license keys between the old and the new project.</p>
 <div class="section">
 <h4><a name="Generating_Your_project"></a>Generating Your project</h4>
-<p>First, you need to create the new project by following the instructions in the page <a href="generating.html">generating your project</a> and defining the value of the properties as explained in the following sections.</p>
+<p>First, you need to generate the new project by following the instructions in the page <a href="generating.html">generating your project</a> and defining the value of the properties as explained in the following sections.</p>
 <div class="section">
 <h5><a name="Migrating_from_the_TrueLicense_Maven_Archetype_before_version_2.4"></a>Migrating from the TrueLicense Maven Archetype before version 2.4</h5>
-<p>If the old project was created using the TrueLicense Maven Archetype before version 2.4, then you need to define the values of the following properties as follows:</p>
+<p>If the old project was generated using the TrueLicense Maven Archetype before version 2.4, then you need to define the values of the following properties as follows:</p>
 
 <dl class="dl-horizontal dt-wide">
     
@@ -252,7 +252,7 @@
                 enter <tt>V2/JSON</tt> (default).</li>
         </ul></dd>
     
-<dt><tt>licensingSubject</tt></dt>
+<dt><tt>subject</tt></dt>
     
 <dd>Enter the value of the field <tt>SUBJECT</tt> in the same class.</dd>
     
@@ -279,7 +279,7 @@
 <p>All other properties may have different values.</p></div>
 <div class="section">
 <h5><a name="Migrating_from_the_TrueLicense_Maven_Archetype_since_version_2.4"></a>Migrating from the TrueLicense Maven Archetype since version 2.4</h5>
-<p>If the old project was created using the TrueLicense Maven Archetype version 2.4 or later, then you need to make sure that the values of the following properties are equal:</p>
+<p>If the old project was generated using the TrueLicense Maven Archetype version 2.4 or later, then you need to make sure that the values of the following properties are equal:</p>
 
 <ul>
   
@@ -291,19 +291,21 @@
   
 <li><tt>ftpSecretMarkerClass</tt></li>
   
+<li><tt>keyStoreType</tt></li>
+  
 <li><tt>licenseKeyFormat</tt></li>
   
-<li><tt>licensingSubject</tt></li>
-  
-<li><tt>package</tt></li>
-  
 <li><tt>password</tt></li>
+  
+<li><tt>pbeAlgorithm</tt></li>
   
 <li><tt>preferencesType</tt></li>
   
 <li><tt>privateKeyStoreFile</tt></li>
   
 <li><tt>publicKeyStoreFile</tt></li>
+  
+<li><tt>subject</tt></li>
 </ul>
 <p>All other properties may have different values.</p></div></div>
 <div class="section">
@@ -332,7 +334,7 @@
 <li><tt>*Type</tt></li>
 </ul>
 <p>&#x2026; where <tt>*</tt> matches any prefix. Please check the documentation comments for each of these properties and customize their values so that they match the configuration of the old project.</p>
-<p><b>If the old project was created using the TrueLicense Maven Archetype before version 2.4, then its generally necessary to change the value of the properties named <tt>*Alias</tt> to <tt>mykey</tt></b>, which is the default alias name for any private key or trusted certificate entry created by the Java <tt>keytool</tt>.</p></div>
+<p><b>If the old project was generated using the TrueLicense Maven Archetype before version 2.4, then its generally necessary to change the value of the properties named <tt>*Alias</tt> to <tt>mykey</tt></b>, which is the default alias name for any private key or trusted certificate entry generated by the Java <tt>keytool</tt>.</p></div>
 <div class="section">
 <h4><a name="Building_Your_project"></a>Building Your project</h4>
 <p>You are now set for <a href="building.html">building your project</a> again.</p>
@@ -352,8 +354,8 @@
         <div class="row">
             <p class="pull-left">Copyright &copy;2005&#x2013;2017
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-09-29</li>
-          <li id="projectVersion" class="pull-right">Version: 2.6.6</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-03</li>
+          <li id="projectVersion" class="pull-right">Version: 3.0.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

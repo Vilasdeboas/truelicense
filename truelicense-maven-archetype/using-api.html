@@ -114,12 +114,12 @@
 <p></p>
 <div class="section">
 <h2><a name="Using_the_API"></a>Using the API</h2>
-<p>This page shows you how to use the Application Programming Interface of your project, or more specifically, its Key Generator and Key Manager modules. For documentation for the TrueLicense API, please refer to the <a href="../apidocs/index.html">TrueLicense Javadoc</a>. Source code and Javadoc for the TrueLicense API are available on Maven Central for <a class="externalLink" href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.java.truelicense%22%20AND%20v%3A%222.6.6%22">download</a>.</p>
+<p>This page shows you how to use the Application Programming Interface of your project, or more specifically, its Key Generator and Key Manager modules. For documentation for the TrueLicense API, please refer to the <a href="../apidocs/index.html">TrueLicense Javadoc</a>. Source code and Javadoc for the TrueLicense API are available on Maven Central for <a class="externalLink" href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.truelicense%22%20AND%20v%3A%223.0.0%22">download</a>.</p>
 <div class="section">
 <h3><a name="Using_the_Key_Generator_API"></a>Using the Key Generator API</h3>
 <div class="section">
 <h4><a name="Warning"></a>Warning</h4>
-<p>The Key Generator module is used to create license keys for your software product without requiring authorization. Therefore, <b>you should keep this module under lock and key!</b> In particular, do not distribute it to users or the public! The same concern applies to any derivative work which includes this module. This limits the set of valid use cases for using the Key Generator API. For example, you may want to develop a RESTful web service which creates license keys once users have paid for them.</p></div>
+<p>The Key Generator module is used to generate license keys for your software product without requiring authorization. Therefore, <b>you should keep this module under lock and key!</b> In particular, do not distribute it to users or the public! The same concern applies to any derivative work which includes this module. This limits the set of valid use cases for using the Key Generator API. For example, you may want to develop a RESTful web service which generates license keys once users have paid for them.</p></div>
 <div class="section">
 <h4><a name="Setting_Up_the_Class_Path"></a>Setting Up the Class Path</h4>
 <div class="section">
@@ -145,7 +145,7 @@
 $ ls *-keygen/target/dependency
 annotations-3.0.0.jar                      jackson-module-jaxb-annotations-2.5.1.jar
 commons-codec-1.10.jar                     truelicense-core-2.4-SNAPSHOT.jar
-jackson-annotations-2.5.0.jar              truelicense-json-2.4-SNAPSHOT.jar
+jackson-annotations-2.5.0.jar              truelicense-v2-json-2.4-SNAPSHOT.jar
 jackson-core-2.5.1.jar                     truelicense-obfuscate-2.4-SNAPSHOT.jar
 jackson-databind-2.5.1.jar
 </pre></div></div>
@@ -156,7 +156,7 @@ jackson-databind-2.5.1.jar
 
 <dl>
 <dt><tt>${package}.keygen.LicenseManager</tt></dt>
-<dd>The enumeration of the <a href="../apidocs/net/java/truelicense/core/LicenseVendorManager.html">license vendor managers</a> for your software product. The managers are named like each configured edition and ordered from superset to subset. Each manager is configured with the algorithms and parameters for creating license keys for the respective edition.</dd>
+<dd>The enumeration of the <a href="../apidocs/net/truelicense/core/VendorLicenseManager.html">vendor license managers</a> for your software product. The managers are named like each configured edition and ordered from superset to subset. Each manager is configured with the algorithms and parameters for generating license keys for the respective edition.</dd>
 <dt><tt>${package}.keygen.LicensingSchema</tt></dt>
 <dd>Deprecated - provided for compatibility only.</dd>
 <dt><tt>${package}.keygen.Main</tt></dt>
@@ -167,7 +167,7 @@ jackson-databind-2.5.1.jar
 <div class="source">
 <div class="source"><pre class="prettyprint">package ${package}.keygen;
 
-public enum LicenseManager implements LicenseVendorManager {
+public enum LicenseManager implements VendorLicenseManager {
 
     enterprise { [...] },
     standard { [...] };
@@ -179,22 +179,36 @@ public enum LicenseManager implements LicenseVendorManager {
 
 <div class="source">
 <div class="source"><pre class="prettyprint">import ${package}.keygen.*;
-import net.java.truelicense.core.*;
-import net.java.truelicense.core.io.Sink;
+import net.truelicense.api.*;
 </pre></div></div></div>
 <div class="section">
-<h4><a name="Creating_a_License_Key"></a>Creating a License Key</h4>
-<p>You can create a license key using:</p>
+<h4><a name="Generating_a_License_Key"></a>Generating a License Key</h4>
+<p>You can generate a license key using:</p>
 
 <div class="source">
-<div class="source"><pre class="prettyprint">LicenseVendorManager manager = LicenseManager.${edition};
+<div class="source"><pre class="prettyprint">VendorLicenseManager manager = LicenseManager.${edition};
 LicenseVendorContext context = manager.context();
 License bean = context.license();
-Sink sink = context.fileStore(new java.io.File(&quot;${license-key-path}&quot;));
-manager.create(bean, sink);
+Sink sink = context.pathStore(java.nio.file.Paths.get(&quot;${license-key-path}&quot;));
+manager.generate(bean, sink);
 </pre></div></div>
-<p>&#x2026; where <tt>${edition}</tt> references an edition of your software product, <tt>${license-key-path}</tt> references the path of the license key file, <tt>manager</tt> is an instance of the class <a href="../apidocs/net/java/truelicense/core/LicenseVendorManager.html"><tt>net.java.truelicense.core.LicenseVendorManager</tt></a>, <tt>context</tt> is an instance of the class <a href="../apidocs/net/java/truelicense/core/LicenseVendorContext.html"><tt>net.java.truelicense.core.LicenseVendorContext</tt></a>, <tt>bean</tt> is an instance of the class <a href="../apidocs/net/java/truelicense/core/License.html"><tt>net.java.truelicense.core.License</tt></a> and <tt>sink</tt> is an instance of the class <a href="../apidocs/net/java/truelicense/core/io/Sink.html"><tt>net.java.truelicense.core.io.Sink</tt></a> and</p>
-<p>For a fully elaborated example, please have a look at the <tt>Main</tt> class.</p></div></div>
+<p>&#x2026; where <tt>${edition}</tt> references an edition of your software product, <tt>${license-key-path}</tt> references the path of the license key file, <tt>manager</tt> is an instance of the class <a href="../apidocs/net/truelicense/api/VendorLicenseManager.html"><tt>net.truelicense.api.VendorLicenseManager</tt></a>, <tt>context</tt> is an instance of the class [<tt>net.truelicense.api.LicenseVendorContext</tt>], <tt>bean</tt> is an instance of the class <a href="../apidocs/net/truelicense/api/License.html"><tt>net.truelicense.api.License</tt></a> and <tt>sink</tt> is an instance of the class <a href="../apidocs/net/truelicense/api/Sink.html"><tt>net.truelicense.api.io.Sink</tt></a> and</p>
+<p>For a fully elaborated example, please have a look at the <tt>Main</tt> class.</p></div>
+<div class="section">
+<h4><a name="Working_with_Runtime_Exceptions"></a>Working with Runtime Exceptions</h4>
+<p>The <tt>VendorLicenseManager</tt> interface may generally throw a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a>, which is a <tt>GeneralSecurityException</tt>, which is a (checked) <tt>Exception</tt>. Working with checked exceptions may be cumbersome in contexts where a method is constrained to only throw unchecked exceptions, e.g. when implementing <tt>Runnable.run()</tt>. For these uses cases there exists an adapter method named <a href="../apidocs/net/truelicense/api/UncheckedLicenseManager.html#from28VendorLicenseManager29"><tt>net.truelicense.api.UncheckedLicenseManager.from(VendorLicenseManager)</tt></a>: This method adapts a vendor license manager so that it may generally throw an <a href="../apidocs/net/truelicense/api/UncheckedLicenseManagementException.html"><tt>net.truelicense.api.UncheckedLicenseManagementException</tt></a>, which is an (unchecked) <tt>RuntimeException</tt> and wraps the original <tt>LicenseManagementException</tt>. Here&#x2019;s the general usage pattern:</p>
+
+<div class="source">
+<div class="source"><pre class="prettyprint">VendorLicenseManager checkedManager = ...;
+UncheckedVendorLicenseManager uncheckedManager = UncheckedLicenseManager.from(checkedManager);
+uncheckedManager.generateKeyFrom(someLicense).saveTo(someSink); // throws UncheckedLicenseManagementException
+</pre></div></div>
+<p>You can get back the original (checked) vendor license manager by calling:</p>
+
+<div class="source">
+<div class="source"><pre class="prettyprint">UncheckedVendorLicenseManager uncheckedManager = ...;
+VendorLicenseManager checkedManager = uncheckedManager.checked();
+</pre></div></div></div></div>
 <div class="section">
 <h3><a name="Using_the_Key_Manager_API"></a>Using the Key Manager API</h3>
 <div class="section">
@@ -221,7 +235,7 @@ manager.create(bean, sink);
 [...]
 $ ls *-keymgr/target/dependency
 annotations-3.0.0.jar                      truelicense-core-2.4-SNAPSHOT.jar
-commons-codec-1.10.jar                     truelicense-json-2.4-SNAPSHOT.jar
+commons-codec-1.10.jar                     truelicense-v2-json-2.4-SNAPSHOT.jar
 jackson-annotations-2.5.0.jar              truelicense-obfuscate-2.4-SNAPSHOT.jar
 jackson-core-2.5.1.jar                     truelicense-swing-2.4-SNAPSHOT.jar
 jackson-databind-2.5.1.jar                 truelicense-ui-2.4-SNAPSHOT.jar
@@ -234,7 +248,7 @@ jackson-module-jaxb-annotations-2.5.1.jar
 
 <dl>
 <dt><tt>${package}.keymgr.LicenseManager</tt></dt>
-<dd>The enumeration of the <a href="../apidocs/net/java/truelicense/core/LicenseConsumerManager.html">license consumer managers</a> for your software product. The managers are named like each configured edition and ordered from superset to subset, including an optional <abbr title="Free Trial Period">FTP</abbr>. Each manager is configured with the algorithms and parameters for installing, viewing, verifying and uninstalling license keys for the respective edition.</dd>
+<dd>The enumeration of the <a href="../apidocs/net/truelicense/core/ConsumerLicenseManager.html">consumer license managers</a> for your software product. The managers are named like each configured edition and ordered from superset to subset, including an optional <abbr title="Free Trial Period">FTP</abbr>. Each manager is configured with the algorithms and parameters for installing, loading, verifying and uninstalling license keys for the respective edition.</dd>
 <dt><tt>${package}.keymgr.LicensingSchema</tt></dt>
 <dd>Deprecated - provided for compatibility only.</dd>
 <dt><tt>${package}.keymgr.Main</tt></dt>
@@ -245,7 +259,7 @@ jackson-module-jaxb-annotations-2.5.1.jar
 <div class="source">
 <div class="source"><pre class="prettyprint">package ${package}.keymgr;
 
-public enum LicenseManager implements LicenseConsumerManager {
+public enum LicenseManager implements ConsumerLicenseManager {
 
     enterprise { [...] },
     standard { [...] },
@@ -256,38 +270,37 @@ public enum LicenseManager implements LicenseConsumerManager {
     [...]
 }
 </pre></div></div>
-<p>License consumer managers are arranged in a <a class="externalLink" href="http://en.wikipedia.org/wiki/Chain-of-responsibility_pattern">chain of responsibility</a>, ordered from feature subset to feature superset (which is the reverse order of the items in the enumeration class <tt>LicenseManager</tt>). When <a href="../apidocs/net/java/truelicense/core/LicenseConsumerManager#install">installing</a>, <a href="../apidocs/net/java/truelicense/core/LicenseConsumerManager#view">viewing</a>, <a href="../apidocs/net/java/truelicense/core/LicenseConsumerManager#verify">verifying</a> or <a href="../apidocs/net/java/truelicense/core/LicenseConsumerManager#uninstall">uninstalling</a> a license key, each operation is tried using the parent manager first. If the operation succeeds using the parent manager then the processing stops, otherwise the operation is retried using the child manager. This repeats recursively until the operation either succeeds using some manager or no more managers are available, in which case a <a href="../apidocs/net/java/truelicense/core/LicenseManagementException.html"><tt>net.java.truelicense.core.LicenseManagementException</tt></a> is thrown.</p>
-<p>This design allows you to use the API for installing, viewing, verifying and uninstalling license keys without knowing for which edition a license key has been created. To facilitate this, the <tt>LicenseManager</tt> class provides the <tt>get()</tt> method which returns the first manager in the configured chain-of-responsibility.</p>
+<p>Consumer license managers are arranged in a <a class="externalLink" href="http://en.wikipedia.org/wiki/Chain-of-responsibility_pattern">chain of responsibility</a>, ordered from feature subset to feature superset (which is the reverse order of the items in the enumeration class <tt>LicenseManager</tt>). When <a href="../apidocs/net/truelicense/core/ConsumerLicenseManager#install">installing</a>, <a href="../apidocs/net/truelicense/core/ConsumerLicenseManager#load">loading</a>, <a href="../apidocs/net/truelicense/core/ConsumerLicenseManager#verify">verifying</a> or <a href="../apidocs/net/truelicense/core/ConsumerLicenseManager#uninstall">uninstalling</a> a license key, each operation is tried using the parent manager first. If the operation succeeds using the parent manager then the processing stops, otherwise the operation is retried using the child manager. This repeats recursively until the operation either succeeds using some manager or no more managers are available, in which case a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a> is thrown.</p>
+<p>This design allows you to use the API for installing, loading, verifying and uninstalling license keys without knowing for which edition a license key has been generated. To facilitate this, the <tt>LicenseManager</tt> class provides the <tt>get()</tt> method which returns the first manager in the configured chain-of-responsibility.</p>
 <p>For the following examples, it&#x2019;s necessary to add the following imports:</p>
 
 <div class="source">
 <div class="source"><pre class="prettyprint">import ${package}.keymgr.*;
-import net.java.truelicense.core.*;
-import net.java.truelicense.core.io.Source;
+import net.truelicense.api.*;
 </pre></div></div></div>
 <div class="section">
 <h4><a name="Installing_a_License_Key"></a>Installing a License Key</h4>
 <p>You can install a license key using:</p>
 
 <div class="source">
-<div class="source"><pre class="prettyprint">LicenseConsumerManager manager = LicenseManager.get();
-LicenseConsumerContext context = manager.context();
-Source source = context.fileStore(new java.io.File(&quot;${license-key-path}&quot;));
+<div class="source"><pre class="prettyprint">ConsumerLicenseManager manager = LicenseManager.get();
+LicenseManagementContext context = manager.context();
+Source source = context.pathStore(java.nio.file.Paths.get(&quot;${license-key-path}&quot;));
 manager.install(source);
 </pre></div></div>
-<p>&#x2026; where <tt>${license-key-path}</tt> references the path of the license key file, <tt>manager</tt> is an instance of the class <a href="../apidocs/net/java/truelicense/core/LicenseConsumerManager.html"><tt>net.java.truelicense.core.LicenseConsumerManager</tt></a>, <tt>context</tt> is an instance of the class <a href="../apidocs/net/java/truelicense/core/LicenseConsumerContext.html"><tt>net.java.truelicense.core.LicenseConsumerContext</tt></a> and <tt>source</tt> is an instance of the class <a href="../apidocs/net/java/truelicense/core/io/Source.html"><tt>net.java.truelicense.core.io.Source</tt></a></p>
-<p>According to the chain-of-responsibility pattern, <tt>LicenseManager.install(Source)</tt> recursively tries each license consumer manager until the given license key fits the respective lock and saves it. It&#x2019;s not necessary to know for which edition the license key has been created.</p>
-<p>If the given file does not hold a license key for the lock of any license consumer manager, then a <a href="../apidocs/net/java/truelicense/core/LicenseManagementException.html"><tt>net.java.truelicense.core.LicenseManagementException</tt></a> is thrown instead.</p></div>
+<p>&#x2026; where <tt>${license-key-path}</tt> references the path of the license key file, <tt>manager</tt> is an instance of the class <a href="../apidocs/net/truelicense/api/ConsumerLicenseManager.html"><tt>net.truelicense.api.ConsumerLicenseManager</tt></a>, <tt>context</tt> is an instance of the class <a href="../apidocs/net/truelicense/api/LicenseManagementContext.html"><tt>net.truelicense.api.LicenseManagementContext</tt></a> and <tt>source</tt> is an instance of the class <a href="../apidocs/net/truelicense/api/Source.html"><tt>net.truelicense.api.io.Source</tt></a></p>
+<p>According to the chain-of-responsibility pattern, <tt>LicenseManager.install(Source)</tt> recursively tries each consumer license manager until the given license key fits the respective lock and saves it. It&#x2019;s not necessary to know for which edition the license key has been generated.</p>
+<p>If the given file does not hold a license key for the lock of any license consumer manager, then a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a> is thrown instead.</p></div>
 <div class="section">
-<h4><a name="Viewing_the_License_Key"></a>Viewing the License Key</h4>
-<p>You can view the installed license key using:</p>
+<h4><a name="Loading_the_License_Key"></a>Loading the License Key</h4>
+<p>You can load the installed license key using:</p>
 
 <div class="source">
-<div class="source"><pre class="prettyprint">License bean = LicenseManager.get().view();
+<div class="source"><pre class="prettyprint">License bean = LicenseManager.get().load();
 </pre></div></div>
-<p>&#x2026; where <tt>bean</tt> is an instance of the class <a href="../apidocs/net/java/truelicense/core/License.html"><tt>net.java.truelicense.core.License</tt></a>.</p>
-<p>According to the chain-of-responsibility pattern, <tt>LicenseManager.view()</tt> recursively tries each license consumer manager until an installed license key is found and returns a duplicate of its encoded license bean. It&#x2019;s not necessary to know for which edition the installed license key has been created. Note that this method does not validate the encoded license bean, so for example, it&#x2019;s term may have already expired.</p>
-<p>If no license key is installed, then a <a href="../apidocs/net/java/truelicense/core/LicenseManagementException.html"><tt>net.java.truelicense.core.LicenseManagementException</tt></a> is thrown instead.</p></div>
+<p>&#x2026; where <tt>bean</tt> is an instance of the class <a href="../apidocs/net/truelicense/api/License.html"><tt>net.truelicense.api.License</tt></a>.</p>
+<p>According to the chain-of-responsibility pattern, <tt>LicenseManager.load()</tt> recursively tries each consumer license manager until an installed license key is found and returns a duplicate of its encoded license bean. It&#x2019;s not necessary to know for which edition the installed license key has been generated. Note that this method does not validate the encoded license bean, so for example, it&#x2019;s term may have already expired.</p>
+<p>If no license key is installed, then a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a> is thrown instead.</p></div>
 <div class="section">
 <h4><a name="Verifying_the_License_Key"></a>Verifying the License Key</h4>
 <p>You can verify the installed license key using:</p>
@@ -295,14 +308,14 @@ manager.install(source);
 <div class="source">
 <div class="source"><pre class="prettyprint">LicenseManager.get().verify();
 </pre></div></div>
-<p>According to the chain-of-responsibility pattern, <tt>LicenseManager.verify()</tt> recursively tries each license consumer manager until an installed license key is found which passes validation, too.</p>
-<p>If no license key is installed, then a <a href="../apidocs/net/java/truelicense/core/LicenseManagementException.html"><tt>net.java.truelicense.core.LicenseManagementException</tt></a> is thrown instead.</p>
-<p>If a license key is installed, but the encoded license bean is invalid, then a <a href="../apidocs/net/java/truelicense/core/LicenseValidationException.html"><tt>net.java.truelicense.core.LicenseValidationException</tt></a> is thrown instead.</p>
+<p>According to the chain-of-responsibility pattern, <tt>LicenseManager.verify()</tt> recursively tries each consumer license manager until an installed license key is found which passes validation, too.</p>
+<p>If no license key is installed, then a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a> is thrown instead.</p>
+<p>If a license key is installed, but the encoded license bean is invalid, then a <a href="../apidocs/net/truelicense/api/LicenseValidationException.html"><tt>net.truelicense.api.LicenseValidationException</tt></a> is thrown instead.</p>
 <p>You need to call this method in advance whenever you want to access a feature of your software product. Calling this method frequently ensures that your software product detects any license term expiration as soon as possible.</p>
 <p>You don&#x2019;t need to worry about performance: TrueLicense maintains a time sensitive cache in order to speed up subsequent processing. For example, on an Intel i7 at 2.2 GHz, once a valid V2/JSON license key is installed you can get about 9.5 million successful license key verifications in a single thread! Of course, this depends not only on the hardware, but also on the configuration of the licensing schema, so your mileage may vary.</p>
 <div class="section">
 <h5><a name="Supporting_Multiple_Editions"></a>Supporting Multiple Editions</h5>
-<p>The use case for verifying a license key is different from the use case for the other operations: When installing, viewing or uninstalling a license key, it&#x2019;s not relevant for which edition a license key has been created. The chain-of-responsibility pattern then ensures that these operations will succeed when calling them on <tt>LicenseManager.get()</tt>, which is the first manager in the chain.</p>
+<p>The use case for verifying a license key is different from the use case for the other operations: When installing, loading or uninstalling a license key, it&#x2019;s not relevant for which edition a license key has been generated. The chain-of-responsibility pattern then ensures that these operations will succeed when calling them on <tt>LicenseManager.get()</tt>, which is the first manager in the chain.</p>
 <p>However, when verifying access to a feature, then you want to make sure that access is granted if and only if a valid license key is installed for the respective edition or any of its supersets, but not its subsets. To do this, you need to directly use the instances of the enumeration class <tt>LicenseManager</tt>. </p>
 <p>For example, assuming the same definition of this class, the following code accepts a valid license key for the enterprise edition <i>only</i>:</p>
 
@@ -327,8 +340,23 @@ manager.install(source);
 <div class="source">
 <div class="source"><pre class="prettyprint">LicenseManager.get().uninstall();
 </pre></div></div>
-<p>According to the chain-of-responsibility pattern, <tt>LicenseManager.uninstall()</tt> recursively tries each license consumer manager until an installed license key is found and deletes it. It&#x2019;s not necessary to know for which edition the installed license key has been created.</p>
-<p>If no license key is installed or only an auto-generated FTP license key is installed, then a <a href="../apidocs/net/java/truelicense/core/LicenseManagementException.html"><tt>net.java.truelicense.core.LicenseManagementException</tt></a> is thrown instead.</p>
+<p>According to the chain-of-responsibility pattern, <tt>LicenseManager.uninstall()</tt> recursively tries each consumer license manager until an installed license key is found and deletes it. It&#x2019;s not necessary to know for which edition the installed license key has been generated.</p>
+<p>If no license key is installed or only an auto-generated FTP license key is installed, then a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a> is thrown instead.</p></div>
+<div class="section">
+<h4><a name="Working_with_Runtime_Exceptions"></a>Working with Runtime Exceptions</h4>
+<p>The <tt>ConsumerLicenseManager</tt> interface may generally throw a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a>, which is a <tt>GeneralSecurityException</tt>, which is a (checked) <tt>Exception</tt>. Working with checked exceptions may be cumbersome in contexts where a method is constrained to only throw unchecked exceptions, e.g. when implementing <tt>Runnable.run()</tt>. For these uses cases there exists an adapter method named <a href="../apidocs/net/truelicense/api/UncheckedLicenseManager.html#from28ConsumerLicenseManager29"><tt>net.truelicense.api.UncheckedLicenseManager.from(ConsumerLicenseManager)</tt></a>: This method adapts a consumer license manager so that it may generally throw an <a href="../apidocs/net/truelicense/api/UncheckedLicenseManagementException.html"><tt>net.truelicense.api.UncheckedLicenseManagementException</tt></a>, which is an (unchecked) <tt>RuntimeException</tt> and wraps the original <tt>LicenseManagementException</tt>. Here&#x2019;s the general usage pattern:</p>
+
+<div class="source">
+<div class="source"><pre class="prettyprint">ConsumerLicenseManager checkedManager = ...;
+UncheckedConsumerLicenseManager uncheckedManager = UncheckedLicenseManager.from(checkedManager);
+uncheckedManager.install(someSource); // throws UncheckedLicenseManagementException
+</pre></div></div>
+<p>You can get back the original (checked) consumer license manager by calling:</p>
+
+<div class="source">
+<div class="source"><pre class="prettyprint">UncheckedConsumerLicenseManager uncheckedManager = ...;
+ConsumerLicenseManager checkedManager = uncheckedManager.checked();
+</pre></div></div>
 <hr />
 
 <ul class="pager">
@@ -349,8 +377,8 @@ manager.install(source);
         <div class="row">
             <p class="pull-left">Copyright &copy;2005&#x2013;2017
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-09-29</li>
-          <li id="projectVersion" class="pull-right">Version: 2.6.6</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-03</li>
+          <li id="projectVersion" class="pull-right">Version: 3.0.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>
