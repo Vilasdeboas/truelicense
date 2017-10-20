@@ -103,7 +103,7 @@
 <h2><a name="Clirr_Results"></a>Clirr Results</h2>
 <p>The following document contains the results of <a class="externalLink" href="http://clirr.sourceforge.net/">Clirr</a>.</p>
 <ul>
-<li>Current Version: 3.0.0</li>
+<li>Current Version: 3.1.0</li>
 <li>Comparison Version: 3.0.0</li></ul></div>
 <div class="section">
 <h2><a name="Summary"></a>Summary</h2>
@@ -113,17 +113,83 @@
 <th>Number</th></tr>
 <tr class="b">
 <td><img alt="Error" src="images/icon_error_sml.gif" />&#160;Error</td>
-<td>0</td></tr>
+<td>6</td></tr>
 <tr class="a">
 <td><img alt="Warning" src="images/icon_warning_sml.gif" />&#160;Warning</td>
 <td>0</td></tr></table>
 <p><i>(The results have been filtered to omit less severe results)</i></p></div>
 <div class="section">
 <h2><a name="API_Incompatibilities"></a>API Incompatibilities</h2>
-<p>No results for the given severities.</p></div>
+<table border="0" class="table table-striped">
+<tr class="b">
+<th>Severity</th>
+<th>Message</th>
+<th>Class</th>
+<th>Method / Field</th></tr>
+<tr class="a">
+<td><img alt="Error" src="images/icon_error_sml.gif" /></td>
+<td>Method 'public net.truelicense.api.UncheckedConsumerLicenseManager unchecked()' has been added to an interface</td>
+<td><a href="./xref/net/truelicense/api/ConsumerLicenseManager.html">net.truelicense.api.ConsumerLicenseManager</a></td>
+<td>public net.truelicense.api.UncheckedConsumerLicenseManager unchecked()</td></tr>
+<tr class="b">
+<td><img alt="Error" src="images/icon_error_sml.gif" /></td>
+<td>Removed net.truelicense.api.ConsumerLicenseManager from the set of implemented interfaces</td>
+<td><a href="./xref/net/truelicense/api/UncheckedConsumerLicenseManager.html">net.truelicense.api.UncheckedConsumerLicenseManager</a></td>
+<td></td></tr>
+<tr class="a">
+<td><img alt="Error" src="images/icon_error_sml.gif" /></td>
+<td>Parameter 1 of 'public UncheckedLicenseManagementException(net.truelicense.api.LicenseManagementException)' has changed its type to java.lang.Throwable</td>
+<td><a href="./xref/net/truelicense/api/UncheckedLicenseManagementException.html">net.truelicense.api.UncheckedLicenseManagementException</a></td>
+<td>public UncheckedLicenseManagementException(net.truelicense.api.LicenseManagementException)</td></tr>
+<tr class="b">
+<td><img alt="Error" src="images/icon_error_sml.gif" /></td>
+<td>Removed net.truelicense.api.VendorLicenseManager from the set of implemented interfaces</td>
+<td><a href="./xref/net/truelicense/api/UncheckedVendorLicenseManager.html">net.truelicense.api.UncheckedVendorLicenseManager</a></td>
+<td></td></tr>
+<tr class="a">
+<td><img alt="Error" src="images/icon_error_sml.gif" /></td>
+<td>Return type of method 'public net.truelicense.api.UncheckedLicenseKeyGenerator generateKeyFrom(net.truelicense.api.License)' has been changed to net.truelicense.api.LicenseKeyGenerator</td>
+<td><a href="./xref/net/truelicense/api/UncheckedVendorLicenseManager.html">net.truelicense.api.UncheckedVendorLicenseManager</a></td>
+<td>public net.truelicense.api.UncheckedLicenseKeyGenerator generateKeyFrom(net.truelicense.api.License)</td></tr>
+<tr class="b">
+<td><img alt="Error" src="images/icon_error_sml.gif" /></td>
+<td>Method 'public net.truelicense.api.UncheckedVendorLicenseManager unchecked()' has been added to an interface</td>
+<td><a href="./xref/net/truelicense/api/VendorLicenseManager.html">net.truelicense.api.VendorLicenseManager</a></td>
+<td>public net.truelicense.api.UncheckedVendorLicenseManager unchecked()</td></tr></table></div>
 <div class="section">
-<h2><a name="API_Changelog"></a>API Changelog</h2>
-<p>No results for the given severities.</p></div>
+<h2><a name="API_Changelog"></a>API Changelog</h2>The following APIs were modified from version 3.0.0 to 3.1.0:
+<ul>
+<li>Non justified changes
+<p></p>
+<table border="0" class="table table-striped">
+<tr class="a">
+<th>Class</th>
+<th>From</th>
+<th>To</th></tr>
+<tr class="b">
+<td>net.truelicense.api.ConsumerLicenseManager</td>
+<td>public net.truelicense.api.UncheckedConsumerLicenseManager unchecked()</td>
+<td></td></tr>
+<tr class="a">
+<td>net.truelicense.api.UncheckedConsumerLicenseManager</td>
+<td></td>
+<td></td></tr>
+<tr class="b">
+<td>net.truelicense.api.UncheckedLicenseManagementException</td>
+<td>public UncheckedLicenseManagementException(net.truelicense.api.LicenseManagementException)</td>
+<td></td></tr>
+<tr class="a">
+<td>net.truelicense.api.UncheckedVendorLicenseManager</td>
+<td></td>
+<td></td></tr>
+<tr class="b">
+<td>net.truelicense.api.UncheckedVendorLicenseManager</td>
+<td>public net.truelicense.api.UncheckedLicenseKeyGenerator generateKeyFrom(net.truelicense.api.License)</td>
+<td></td></tr>
+<tr class="a">
+<td>net.truelicense.api.VendorLicenseManager</td>
+<td>public net.truelicense.api.UncheckedVendorLicenseManager unchecked()</td>
+<td></td></tr></table></li></ul></div>
         </div>
     </div>
     <hr/>
@@ -132,8 +198,8 @@
         <div class="row">
             <p class="pull-left">Copyright &copy;2005&#x2013;2017
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-03</li>
-          <li id="projectVersion" class="pull-right">Version: 3.0.0</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-20</li>
+          <li id="projectVersion" class="pull-right">Version: 3.1.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

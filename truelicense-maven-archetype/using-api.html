@@ -114,7 +114,7 @@
 <p></p>
 <div class="section">
 <h2><a name="Using_the_API"></a>Using the API</h2>
-<p>This page shows you how to use the Application Programming Interface of your project, or more specifically, its Key Generator and Key Manager modules. For documentation for the TrueLicense API, please refer to the <a href="../apidocs/index.html">TrueLicense Javadoc</a>. Source code and Javadoc for the TrueLicense API are available on Maven Central for <a class="externalLink" href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.truelicense%22%20AND%20v%3A%223.0.0%22">download</a>.</p>
+<p>This page shows you how to use the Application Programming Interface of your project, or more specifically, its Key Generator and Key Manager modules. For documentation for the TrueLicense API, please refer to the <a href="../apidocs/index.html">TrueLicense Javadoc</a>. Source code and Javadoc for the TrueLicense API are available on Maven Central for <a class="externalLink" href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22net.truelicense%22%20AND%20v%3A%223.1.0%22">download</a>.</p>
 <div class="section">
 <h3><a name="Using_the_Key_Generator_API"></a>Using the Key Generator API</h3>
 <div class="section">
@@ -196,11 +196,11 @@ manager.generate(bean, sink);
 <p>For a fully elaborated example, please have a look at the <tt>Main</tt> class.</p></div>
 <div class="section">
 <h4><a name="Working_with_Runtime_Exceptions"></a>Working with Runtime Exceptions</h4>
-<p>The <tt>VendorLicenseManager</tt> interface may generally throw a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a>, which is a <tt>GeneralSecurityException</tt>, which is a (checked) <tt>Exception</tt>. Working with checked exceptions may be cumbersome in contexts where a method is constrained to only throw unchecked exceptions, e.g. when implementing <tt>Runnable.run()</tt>. For these uses cases there exists an adapter method named <a href="../apidocs/net/truelicense/api/UncheckedLicenseManager.html#from28VendorLicenseManager29"><tt>net.truelicense.api.UncheckedLicenseManager.from(VendorLicenseManager)</tt></a>: This method adapts a vendor license manager so that it may generally throw an <a href="../apidocs/net/truelicense/api/UncheckedLicenseManagementException.html"><tt>net.truelicense.api.UncheckedLicenseManagementException</tt></a>, which is an (unchecked) <tt>RuntimeException</tt> and wraps the original <tt>LicenseManagementException</tt>. Here&#x2019;s the general usage pattern:</p>
+<p>The <tt>VendorLicenseManager</tt> interface may generally throw a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a>, which is a <tt>GeneralSecurityException</tt>, which is a (checked) <tt>Exception</tt>. Working with checked exceptions may be cumbersome in contexts where a method is constrained to only throw unchecked exceptions, e.g. when implementing <tt>Runnable.run()</tt>. For these uses cases there exists an adapter method named <a href="../apidocs/net/truelicense/api/VendorLicenseManager.html#unchecked2829"><tt>net.truelicense.api.VendorLicenseManager.unchecked()</tt></a>: This method adapts a vendor license manager so that it may generally throw an <a href="../apidocs/net/truelicense/api/UncheckedLicenseManagementException.html"><tt>net.truelicense.api.UncheckedLicenseManagementException</tt></a>, which is an (unchecked) <tt>RuntimeException</tt> and wraps the original <tt>LicenseManagementException</tt>. Here&#x2019;s the general usage pattern:</p>
 
 <div class="source">
 <div class="source"><pre class="prettyprint">VendorLicenseManager checkedManager = ...;
-UncheckedVendorLicenseManager uncheckedManager = UncheckedLicenseManager.from(checkedManager);
+UncheckedVendorLicenseManager uncheckedManager = checkedManager.unchecked());
 uncheckedManager.generateKeyFrom(someLicense).saveTo(someSink); // throws UncheckedLicenseManagementException
 </pre></div></div>
 <p>You can get back the original (checked) vendor license manager by calling:</p>
@@ -344,11 +344,11 @@ manager.install(source);
 <p>If no license key is installed or only an auto-generated FTP license key is installed, then a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a> is thrown instead.</p></div>
 <div class="section">
 <h4><a name="Working_with_Runtime_Exceptions"></a>Working with Runtime Exceptions</h4>
-<p>The <tt>ConsumerLicenseManager</tt> interface may generally throw a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a>, which is a <tt>GeneralSecurityException</tt>, which is a (checked) <tt>Exception</tt>. Working with checked exceptions may be cumbersome in contexts where a method is constrained to only throw unchecked exceptions, e.g. when implementing <tt>Runnable.run()</tt>. For these uses cases there exists an adapter method named <a href="../apidocs/net/truelicense/api/UncheckedLicenseManager.html#from28ConsumerLicenseManager29"><tt>net.truelicense.api.UncheckedLicenseManager.from(ConsumerLicenseManager)</tt></a>: This method adapts a consumer license manager so that it may generally throw an <a href="../apidocs/net/truelicense/api/UncheckedLicenseManagementException.html"><tt>net.truelicense.api.UncheckedLicenseManagementException</tt></a>, which is an (unchecked) <tt>RuntimeException</tt> and wraps the original <tt>LicenseManagementException</tt>. Here&#x2019;s the general usage pattern:</p>
+<p>The <tt>ConsumerLicenseManager</tt> interface may generally throw a <a href="../apidocs/net/truelicense/api/LicenseManagementException.html"><tt>net.truelicense.api.LicenseManagementException</tt></a>, which is a <tt>GeneralSecurityException</tt>, which is a (checked) <tt>Exception</tt>. Working with checked exceptions may be cumbersome in contexts where a method is constrained to only throw unchecked exceptions, e.g. when implementing <tt>Runnable.run()</tt>. For these uses cases there exists an adapter method named <a href="../apidocs/net/truelicense/api/ConsumerLicenseManager.html#unchecked2829"><tt>net.truelicense.api.ConsumerLicenseManager.unchecked()</tt></a>: This method adapts a consumer license manager so that it may generally throw an <a href="../apidocs/net/truelicense/api/UncheckedLicenseManagementException.html"><tt>net.truelicense.api.UncheckedLicenseManagementException</tt></a>, which is an (unchecked) <tt>RuntimeException</tt> and wraps the original <tt>LicenseManagementException</tt>. Here&#x2019;s the general usage pattern:</p>
 
 <div class="source">
 <div class="source"><pre class="prettyprint">ConsumerLicenseManager checkedManager = ...;
-UncheckedConsumerLicenseManager uncheckedManager = UncheckedLicenseManager.from(checkedManager);
+UncheckedConsumerLicenseManager uncheckedManager = checkedManager.unchecked());
 uncheckedManager.install(someSource); // throws UncheckedLicenseManagementException
 </pre></div></div>
 <p>You can get back the original (checked) consumer license manager by calling:</p>
@@ -377,8 +377,8 @@ ConsumerLicenseManager checkedManager = uncheckedManager.checked();
         <div class="row">
             <p class="pull-left">Copyright &copy;2005&#x2013;2017
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-03</li>
-          <li id="projectVersion" class="pull-right">Version: 3.0.0</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-20</li>
+          <li id="projectVersion" class="pull-right">Version: 3.1.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

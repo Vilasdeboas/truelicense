@@ -23,19 +23,16 @@
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L16" href="#L16">16</a>  <em class="jxr_javadoccomment"> * @author Christian Schlichtherle</em>
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../net/truelicense/v1/auth/V1RepositoryContext.html">V1RepositoryContext</a>
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">implements</strong> RepositoryContext&lt;GenericCertificate&gt; {
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>      @Override
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../de/schlichtherle/xml/GenericCertificate.html">GenericCertificate</a> model() {
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../de/schlichtherle/xml/GenericCertificate.html">GenericCertificate</a>();
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>      }
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>  
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>      @Override
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../net/truelicense/api/auth/RepositoryController.html">RepositoryController</a> controller(<a href="../../../../de/schlichtherle/xml/GenericCertificate.html">GenericCertificate</a> model, <a href="../../../../net/truelicense/api/codec/Codec.html">Codec</a> codec) {
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/truelicense/v1/auth/V1RepositoryController.html">V1RepositoryController</a>(model, codec);
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>      }
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  }
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../net/truelicense/v1/auth/V1RepositoryContext.html">V1RepositoryContext</a> <strong class="jxr_keyword">implements</strong> RepositoryContext&lt;GenericCertificate&gt; {
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      @Override
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../de/schlichtherle/xml/GenericCertificate.html">GenericCertificate</a> model() { <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> GenericCertificate(); }
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      @Override
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../net/truelicense/api/auth/RepositoryController.html">RepositoryController</a> controller(<a href="../../../../de/schlichtherle/xml/GenericCertificate.html">GenericCertificate</a> model, <a href="../../../../net/truelicense/api/codec/Codec.html">Codec</a> codec) {
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../net/truelicense/v1/auth/V1RepositoryController.html">V1RepositoryController</a>(model, codec);
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      }
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2005&#x2013;2017 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>. All rights reserved.</div>
