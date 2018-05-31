@@ -125,7 +125,7 @@
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> String java(<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong>[] obfuscated) {
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>         <em class="jxr_comment">// Create and initialize a string builder to hold the generated Java</em>
 <a class="jxr_linenumber" name="L119" href="#L119">119</a>         <em class="jxr_comment">// source code.</em>
-<a class="jxr_linenumber" name="L120" href="#L120">120</a>         <strong class="jxr_keyword">final</strong> StringBuilder code = <strong class="jxr_keyword">new</strong> StringBuilder(<strong class="jxr_keyword">new</strong> <a href="../../../net/truelicense/obfuscate/ObfuscatedString.html">ObfuscatedString</a>(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0xe76f98ad46864790l, 0xb3040b4243aa8070l, 0xbe4b1f5a4ace506l, 0x69991ac7041ebf9el, 0xa044e8e3272cd2f5l, 0xe07a9af6241db6f7l, 0x7d02051577a85512l, 0x6159ad40425384el, 0x5b84c73088b600a1l }).toString());
+<a class="jxr_linenumber" name="L120" href="#L120">120</a>         <strong class="jxr_keyword">final</strong> StringBuilder code = <strong class="jxr_keyword">new</strong> StringBuilder(<strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0x863f69cc8f495927l, 0x894754c8409c2b0cl, 0x64666bb6f4cda0el, 0x9b695ff4e3921eecl, 0x1e9addfdf2963b0al, 0x5e7912c8c72d6693l, 0xa9ed4173e692aa6bl, 0xaaf5ddee591bb444l, 0xc71fddd23ad5e640l }).toString());
 <a class="jxr_linenumber" name="L121" href="#L121">121</a> 
 <a class="jxr_linenumber" name="L122" href="#L122">122</a>         <em class="jxr_comment">// Append the seed as the first array element of the obfuscated string.</em>
 <a class="jxr_linenumber" name="L123" href="#L123">123</a>         <em class="jxr_comment">// All values are represented in hexadecimal in order to keep the</em>
@@ -135,9 +135,9 @@
 <a class="jxr_linenumber" name="L127" href="#L127">127</a>             appendHexLiteral(code.append(<span class="jxr_string">", "</span>), obfuscated[i]);
 <a class="jxr_linenumber" name="L128" href="#L128">128</a> 
 <a class="jxr_linenumber" name="L129" href="#L129">129</a>         <strong class="jxr_keyword">return</strong> code
-<a class="jxr_linenumber" name="L130" href="#L130">130</a>                 .append(<strong class="jxr_keyword">new</strong> <a href="../../../net/truelicense/obfuscate/ObfuscatedString.html">ObfuscatedString</a>(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0x16cb1f6d43b82a27l, 0x99f8c3a900d67290l, 0x830733a6e06a899fl, 0x9bd7353345c1d16bl }).toString())
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>                 .append(<strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0xc88560ca767220a0l, 0xbafc124667dcdcd1l, 0x386510ee9b166120l, 0x9169ff211fbee2d6l }).toString())
 <a class="jxr_linenumber" name="L131" href="#L131">131</a>                 .append(literal(<strong class="jxr_keyword">new</strong> <a href="../../../net/truelicense/obfuscate/ObfuscatedString.html">ObfuscatedString</a>(obfuscated).toString()).replace(<span class="jxr_string">"*/"</span>, <span class="jxr_string">"*&#92;&#92;/"</span>)) <em class="jxr_comment">// escape */ in comment</em>
-<a class="jxr_linenumber" name="L132" href="#L132">132</a>                 .append(<strong class="jxr_keyword">new</strong> <a href="../../../net/truelicense/obfuscate/ObfuscatedString.html">ObfuscatedString</a>(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0x80cea65c19337b82l, 0xc092dc6e3e86ba91l }).toString())
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>                 .append(<strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0xd5652c246ddf207fl, 0x9320596ee2d22c6l }).toString())
 <a class="jxr_linenumber" name="L133" href="#L133">133</a>                 .toString();
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>     }
 <a class="jxr_linenumber" name="L135" href="#L135">135</a> 
@@ -149,8 +149,8 @@
 <a class="jxr_linenumber" name="L141" href="#L141">141</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L142" href="#L142">142</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> String literal(String s) {
 <a class="jxr_linenumber" name="L143" href="#L143">143</a>         <strong class="jxr_keyword">return</strong> '&quot;' +
-<a class="jxr_linenumber" name="L144" href="#L144">144</a>                 s   .replace(<span class="jxr_string">"&#92;&#92;"</span>, <strong class="jxr_keyword">new</strong> <a href="../../../net/truelicense/obfuscate/ObfuscatedString.html">ObfuscatedString</a>(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0x9d97c9ba3e220a54l, 0x9764d2e1348cdbfbl }).toString())
-<a class="jxr_linenumber" name="L145" href="#L145">145</a>                     .replace(<span class="jxr_string">"\&quot;"</span>, <strong class="jxr_keyword">new</strong> <a href="../../../net/truelicense/obfuscate/ObfuscatedString.html">ObfuscatedString</a>(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0xa5074bc85fb6f7c0l, 0x9b7450b5896c49f3l }).toString()) +
+<a class="jxr_linenumber" name="L144" href="#L144">144</a>                 s   .replace(<span class="jxr_string">"&#92;&#92;"</span>, <strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0x7039332787b3746el, 0xc0b41fa378b58968l }).toString())
+<a class="jxr_linenumber" name="L145" href="#L145">145</a>                     .replace(<span class="jxr_string">"\&quot;"</span>, <strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0xb5008b1f587b395bl, 0x32d85afbb209412cl }).toString()) +
 <a class="jxr_linenumber" name="L146" href="#L146">146</a>                 '&quot;';
 <a class="jxr_linenumber" name="L147" href="#L147">147</a> 
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>     }
@@ -175,7 +175,7 @@
 <a class="jxr_linenumber" name="L167" href="#L167">167</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L168" href="#L168">168</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">long</strong>[] array(<strong class="jxr_keyword">final</strong> String s) {
 <a class="jxr_linenumber" name="L169" href="#L169">169</a>         <strong class="jxr_keyword">if</strong> (-1 != s.indexOf(0)) {
-<a class="jxr_linenumber" name="L170" href="#L170">170</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<strong class="jxr_keyword">new</strong> <a href="../../../net/truelicense/obfuscate/ObfuscatedString.html">ObfuscatedString</a>(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0xad05fc307fad2dael, 0x2288d4f843b1ba0el, 0xe3a1d61736c45f36l, 0x36d613b91269478fl, 0xb22a24b187d817b2l }).toString());
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0x28cadfbe1893c3bl, 0xea4838eea01492f5l, 0x1f4255b3fff19724l, 0x4302783991533b0cl, 0x2b3b931b9908c7a4l }).toString());
 <a class="jxr_linenumber" name="L171" href="#L171">171</a>         }
 <a class="jxr_linenumber" name="L172" href="#L172">172</a> 
 <a class="jxr_linenumber" name="L173" href="#L173">173</a>         <em class="jxr_comment">// Encode the string to a byte array using UTF-8.</em>
@@ -351,6 +351,6 @@
 <a class="jxr_linenumber" name="L343" href="#L343">343</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2005&#x2013;2017 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2005&#x2013;2018 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>. All rights reserved.</div>
 </body>
 </html>

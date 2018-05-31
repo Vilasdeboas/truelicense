@@ -13,18 +13,7 @@
     <link rel="stylesheet" href="./css/site.css" />
     <link rel="stylesheet" href="./css/print.css" media="print" />
       <script type="text/javascript" src="./js/apache-maven-fluido-1.6.min.js"></script>
-<script type="text/javascript" src="js/accordion.js"></script>      <!-- Google Analytics -->
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-28191662-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-      </head>
+<script type="text/javascript" src="js/accordion.js"></script>      </head>
     <body class="topBarEnabled">
       <div id="topbar" class="navbar navbar-fixed-top ">
       <div class="navbar-inner">
@@ -143,7 +132,7 @@
 <div class="source"><pre class="prettyprint">$ mvn archetype:generate -B \
     -DarchetypeGroupId=net.truelicense \
     -DarchetypeArtifactId=truelicense-maven-archetype \
-    -DarchetypeVersion=3.1.0 \
+    -DarchetypeVersion=3.2.0 \
     -DartifactId='basic' \
     -Dcompany='Company Inc.' \
     -DgroupId='com.company.product' \
@@ -792,7 +781,7 @@
                         <tt>PBEWithSHA1AndDESede</tt>.
                     </dd>
 <dt>Type</dt>
-<dd><a class="externalLink" href="http://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Cipher"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">PbeAlgorithm</abbr></a>: One of <tt>auto</tt>, <tt>PBEWithMD5AndDES</tt>, <tt>PBEWithSHA1AndDESede</tt>, <tt>PBEWithHmacSHA1AndAES_128</tt>, <tt>PBEWithHmacSHA224AndAES_128</tt>, <tt>PBEWithHmacSHA256AndAES_128</tt>, <tt>PBEWithHmacSHA384AndAES_128</tt>, <tt>PBEWithHmacSHA512AndAES_128</tt>, <tt>PBEWithHmacSHA1AndAES_256</tt>, <tt>PBEWithHmacSHA224AndAES_256</tt>, <tt>PBEWithHmacSHA256AndAES_256</tt>, <tt>PBEWithHmacSHA384AndAES_256</tt> or <tt>PBEWithHmacSHA512AndAES_256</tt>. </dd>
+<dd><a class="externalLink" href="http://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Cipher"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">PbeAlgorithm</abbr></a>: One of <tt>auto</tt>, <tt>PBEWithMD5AndDES</tt>, <tt>PBEWithMD5AndTripleDES</tt>, <tt>PBEWithSHA1AndDESede</tt>, <tt>PBEWithSHA1AndRC2_40</tt>, <tt>PBEWithSHA1AndRC2_128</tt>, <tt>PBEWithSHA1AndRC4_40</tt>, <tt>PBEWithSHA1AndRC4_128</tt>, <tt>PBEWithHmacSHA1AndAES_128</tt>, <tt>PBEWithHmacSHA224AndAES_128</tt>, <tt>PBEWithHmacSHA256AndAES_128</tt>, <tt>PBEWithHmacSHA384AndAES_128</tt>, <tt>PBEWithHmacSHA512AndAES_128</tt>, <tt>PBEWithHmacSHA1AndAES_256</tt>, <tt>PBEWithHmacSHA224AndAES_256</tt>, <tt>PBEWithHmacSHA256AndAES_256</tt>, <tt>PBEWithHmacSHA384AndAES_256</tt> or <tt>PBEWithHmacSHA512AndAES_256</tt>. </dd>
 <dt>Default</dt>
 <dd><tt>auto</tt></dd></dl></div></div></div>
 <div class="accordion-group">
@@ -872,11 +861,11 @@
                         are installed in the JRE/JDK.
                     </dd>
 <dt>Type</dt>
-<dd><a class="externalLink" href="http://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Signature"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">SignatureAlgorithm</abbr></a>: One of <tt>auto</tt>, <tt>NONEwithDSA</tt>, <tt>SHA1withDSA</tt>, <tt>SHA224withDSA</tt>, <tt>SHA256withDSA</tt>, <tt>NONEwithECDSA</tt>, <tt>SHA1withECDSA</tt>, <tt>SHA224withECDSA</tt>, <tt>SHA256withECDSA</tt>, <tt>SHA384withECDSA</tt>, <tt>SHA512withECDSA</tt>, <tt>NONEwithRSA</tt>, <tt>SHA1withRSA</tt>, <tt>SHA224withRSA</tt>, <tt>SHA256withRSA</tt>, <tt>SHA384withRSA</tt> or <tt>SHA512withRSA</tt>. </dd>
+<dd><a class="externalLink" href="http://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Signature"><abbr title="A custom datatype based on a built-in datatype of XML Schema with additional restrictions.">SignatureAlgorithm</abbr></a>: One of <tt>auto</tt>, <tt>NONEwithDSA</tt>, <tt>SHA1withDSA</tt>, <tt>SHA224withDSA</tt>, <tt>SHA256withDSA</tt>, <tt>NONEwithECDSA</tt>, <tt>SHA1withECDSA</tt>, <tt>SHA224withECDSA</tt>, <tt>SHA256withECDSA</tt>, <tt>SHA384withECDSA</tt>, <tt>SHA512withECDSA</tt>, <tt>NONEwithRSA</tt>, <tt>MD2withRSA</tt>, <tt>MD5withRSA</tt>, <tt>SHA1withRSA</tt>, <tt>SHA224withRSA</tt>, <tt>SHA256withRSA</tt>, <tt>SHA384withRSA</tt> or <tt>SHA512withRSA</tt>. </dd>
 <dt>Default</dt>
 <dd><tt>auto</tt></dd></dl></div></div></div>
 <div class="accordion-group">
-<div class="accordion-heading"><a href="#d24e673" class="accordion-toggle"><tt>trueLicenseVersion</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>3.1.0</tt>]</a></div>
+<div class="accordion-heading"><a href="#d24e673" class="accordion-toggle"><tt>trueLicenseVersion</tt>: <abbr title="A built-in datatype of XML Schema.">token</abbr> [<tt>3.2.0</tt>]</a></div>
 <div id="d24e673" class="accordion-body collapse">
 <div class="accordion-inner">
 <dl class="dl-horizontal">
@@ -887,7 +876,7 @@
 <dt>Type</dt>
 <dd><a class="externalLink" href="http://www.w3.org/TR/xmlschema-2/#token"><abbr title="A built-in datatype of XML Schema.">token</abbr></a></dd>
 <dt>Default</dt>
-<dd><tt>3.1.0</tt></dd></dl></div></div></div>
+<dd><tt>3.2.0</tt></dd></dl></div></div></div>
 <div class="accordion-group">
 <div class="accordion-heading"><a href="#d24e682" class="accordion-toggle"><tt>verboseCli</tt>: <abbr title="A built-in datatype of XML Schema.">boolean</abbr> [<tt>false</tt>]</a></div>
 <div id="d24e682" class="accordion-body collapse">
@@ -922,10 +911,10 @@
     <footer>
       <div class="container">
         <div class="row">
-            <p class="pull-left">Copyright &copy;2005&#x2013;2017
+            <p class="pull-left">Copyright &copy;2005&#x2013;2018
 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>.
-All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2017-10-20</li>
-          <li id="projectVersion" class="pull-right">Version: 3.1.0</li>
+All rights reserved.        <li id="publishDate" class="pull-right">Last Published: 2018-05-31</li>
+          <li id="projectVersion" class="pull-right">Version: 3.2.0</li>
 </p>
         </div>
         <p id="poweredBy" class="pull-right">  <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy"><img class="builtBy" alt="Built by Maven" src="./images/logos/maven-feather.png" /></a>

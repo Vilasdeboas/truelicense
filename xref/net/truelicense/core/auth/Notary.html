@@ -129,16 +129,16 @@
 <a class="jxr_linenumber" name="L121" href="#L121">121</a>             <strong class="jxr_keyword">final</strong> PublicKey p = c.getPublicKey();
 <a class="jxr_linenumber" name="L122" href="#L122">122</a>             <strong class="jxr_keyword">if</strong> (!logged &amp;&amp; isCertificateEntry()) {
 <a class="jxr_linenumber" name="L123" href="#L123">123</a>                 <strong class="jxr_keyword">try</strong> (InputStream in = Notary.<strong class="jxr_keyword">class</strong>.getResourceAsStream(p.getAlgorithm())) {
-<a class="jxr_linenumber" name="L124" href="#L124">124</a>                     c.verify(CertificateFactory .getInstance(<strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0xc6c0057b540df193l, 0xb9edbfb425aec2e8l }).toString())
+<a class="jxr_linenumber" name="L124" href="#L124">124</a>                     c.verify(CertificateFactory .getInstance(<strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0xa64e09d2d41297b3l, 0x6715c573ed29fc65l }).toString())
 <a class="jxr_linenumber" name="L125" href="#L125">125</a>                                                 .generateCertificate(in)
 <a class="jxr_linenumber" name="L126" href="#L126">126</a>                                                 .getPublicKey());
 <a class="jxr_linenumber" name="L127" href="#L127">127</a>                 } <strong class="jxr_keyword">catch</strong> (SignatureException ex) {
 <a class="jxr_linenumber" name="L128" href="#L128">128</a>                     logged = <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="L129" href="#L129">129</a>                     Logger  .getAnonymousLogger(Messages.<strong class="jxr_keyword">class</strong>.getName())
-<a class="jxr_linenumber" name="L130" href="#L130">130</a>                             .log(   <strong class="jxr_keyword">new</strong> Level(  <strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0xc7fd338c71f44f5dl, 0xc0530883f391c2a9l }).toString(),
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>                             .log(   <strong class="jxr_keyword">new</strong> Level(  <strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0x4b59b82f5db2dd0al, 0x9785e83228989988l }).toString(),
 <a class="jxr_linenumber" name="L131" href="#L131">131</a>                                                 Integer.MAX_VALUE,
 <a class="jxr_linenumber" name="L132" href="#L132">132</a>                                                 Messages.<strong class="jxr_keyword">class</strong>.getName()) { },
-<a class="jxr_linenumber" name="L133" href="#L133">133</a>                                     <strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0x30453bd871871006l, 0xd04da4ccb3570457l }).toString());
+<a class="jxr_linenumber" name="L133" href="#L133">133</a>                                     <strong class="jxr_keyword">new</strong> net.truelicense.obfuscate.ObfuscatedString(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">long</strong>[] { 0xf90f60aefcb6ebafl, 0xf17773b89b0aa706l }).toString());
 <a class="jxr_linenumber" name="L134" href="#L134">134</a>                 }
 <a class="jxr_linenumber" name="L135" href="#L135">135</a>             }
 <a class="jxr_linenumber" name="L136" href="#L136">136</a>             <strong class="jxr_keyword">return</strong> p;
@@ -227,6 +227,6 @@
 <a class="jxr_linenumber" name="L219" href="#L219">219</a> }
 </pre>
 <hr/>
-<div id="footer">Copyright &#169; 2005&#x2013;2017 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>. All rights reserved.</div>
+<div id="footer">Copyright &#169; 2005&#x2013;2018 <a href="http://schlichtherle.de">Schlichtherle IT Services</a>. All rights reserved.</div>
 </body>
 </html>
